@@ -11,13 +11,14 @@ public class cameraFollow : MonoBehaviour
     private List<Transform> players = new List<Transform>();
     private void Awake()
     {
-        PlayerInstantiator.OnInstantiatePlayer += (GameObject newPlayer) => {players.Add(newPlayer.transform);};
+        PlayerInstantiator.OnInstantiatePlayer += (GameObject newPlayer) => { players.Add(newPlayer.transform); };
     }
     private void SetCameraSize()
     {
         float maxDistanceX = 0, maxDistanceY = 0;
         for (int i = 0; i < players.Count; i++)
-            for (int j = 0; j < players.Count; j++) {
+            for (int j = 0; j < players.Count; j++)
+            {
                 float dX = Mathf.Abs(players[i].position.x - players[j].position.x),
                       dY = Mathf.Abs(players[i].position.y - players[j].position.y);
                 if (dX > maxDistanceX) maxDistanceX = dX;
@@ -25,8 +26,8 @@ public class cameraFollow : MonoBehaviour
             }
         // The numbers you see ahead have come from God; don't question them.
         float minWidth = 4 + maxDistanceX, minHight = 4 + maxDistanceY;
-        if (minHight < minWidth * 2/5) minHight = minWidth * 2/5;
-        if (minWidth < minHight * 5/2) minWidth = minHight * 5/2;    
+        if (minHight < minWidth * 2 / 5) minHight = minWidth * 2 / 5;
+        if (minWidth < minHight * 5 / 2) minWidth = minHight * 5 / 2;
         this.GetComponent<Camera>().orthographicSize = minWidth / 5 + 2;
     }
 

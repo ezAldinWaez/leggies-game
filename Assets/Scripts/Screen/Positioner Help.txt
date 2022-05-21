@@ -1,0 +1,12 @@
+Hallo~! Here I will tell you how to use the positioner.
+The script will position the UI element depending on the size of the screen, so it can respond to any screen size.
+The two points you have to enter, xMin, yMin, and xMax, yMax are percents of the screen 
+that will pinpoint a space for the element to occupy.
+For example, you have a button that you want to occupy the last vetical 10% of the screen. 
+You assign the Positioner to it, and you fill it:
+XMin: 0
+XMax: 1
+YMin: 0
+YMax: 0.1
+
+Good Luck and have fun!

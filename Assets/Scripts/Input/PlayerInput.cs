@@ -8,11 +8,16 @@ public class PlayerInput : MonoBehaviour
     public event MoveAction Move;
     public delegate void RetreatAction();
     public event RetreatAction Retreat;
+    public delegate void FireAction();
+    public event FireAction Fire;
     private Dictionary<string, KeyCode> Keys;
     public void setKeys(Dictionary<string, KeyCode> newKeys)
     {
         if (Keys == null) Keys = newKeys;
     }
+
+    // TODO: Recognize That Stuff 👇 (it shoud be just one line to control those actions).
+
     void Update()
     {
         if (Input.GetKeyDown(Keys["UP"]))
@@ -26,5 +31,8 @@ public class PlayerInput : MonoBehaviour
 
         if (Input.GetKeyDown(Keys["RETREAT"]))
             Retreat?.Invoke();
+
+        if (Input.GetKeyDown(Keys["Fire"]))
+            Fire?.Invoke();
     }
 }

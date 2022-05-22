@@ -32,7 +32,7 @@ public class PlayerInput : MonoBehaviour
         if (Input.GetKeyDown(Keys["RETREAT"]))
             Retreat?.Invoke();
 
-        if (Input.GetKeyDown(Keys["Fire"]))
+        if (Input.GetKeyDown(Keys["FIRE"]))
             Fire?.Invoke();
     }
 }

@@ -4,17 +4,20 @@ using UnityEngine;
 
 public class Retreat : MonoBehaviour
 {
-    [SerializeField] private float retreatPower = 1000;
+    [SerializeField] private float power = 1000;
     void Start()
     {
         Rigidbody2D movedBody = this.GetComponent<Rigidbody2D>();
         PlayerInput playerInput = this.GetComponent<PlayerInput>();
-        playerInput.Retreat += () =>
+        playerInput.OnKeyPressed += (string key) =>
         {
-            float angle = Mathf.Atan2(movedBody.velocity.y, movedBody.velocity.x);
-            movedBody.velocity = new Vector2(0, 0);
-            Vector2 movedForce = new Vector2(retreatPower * -Mathf.Cos(angle), retreatPower * -Mathf.Sin(angle));
-            movedBody.AddForce(movedForce);
+            if (key == "RETREAT")
+            {
+                float angle = Mathf.Atan2(movedBody.velocity.y, movedBody.velocity.x);
+                movedBody.velocity = new Vector2(0, 0);
+                Vector2 movedForce = new Vector2(power * -Mathf.Cos(angle), power * -Mathf.Sin(angle));
+                movedBody.AddForce(movedForce);
+            }
         };
     }
 }

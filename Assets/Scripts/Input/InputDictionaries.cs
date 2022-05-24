@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InputDictionaries : MonoBehaviour
 {
+    //TODO: public static const string for each Key name
     private static List<Dictionary<string, KeyCode>> defaultKeysOfPlayer = new List<Dictionary<string, KeyCode>> {
         new Dictionary<string, KeyCode> {
             ["UP"] = KeyCode.W,

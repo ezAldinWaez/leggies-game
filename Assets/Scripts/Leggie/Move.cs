@@ -5,14 +5,21 @@ using UnityEngine;
 public class Move : MonoBehaviour
 {
     [SerializeField] private float power = 300;
-    void Start()
+    private Rigidbody2D body;
+    private void Start()
     {
-        Rigidbody2D body = this.GetComponent<Rigidbody2D>();
+        body = this.GetComponent<Rigidbody2D>();
         PlayerInput playerInput = this.GetComponent<PlayerInput>();
-        playerInput.Move += (float angle) =>
+        playerInput.OnKeyPressed += (string key) =>
         {
-            Vector2 force = new Vector2(power * Mathf.Cos(angle), power * Mathf.Sin(angle));
-            body.AddForce(force);
+            switch (key)
+            {
+                case "UP": body.AddForce(new Vector2(0, power)); break;
+                case "LEFT": body.AddForce(new Vector2(-power, 0)); break;
+                case "DOWN": body.AddForce(new Vector2(0, -power)); break;
+                case "RIGHT": body.AddForce(new Vector2(power, 0)); break;
+                default: break;
+            }
         };
     }
 }

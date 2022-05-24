@@ -8,9 +8,12 @@ public class Fire : MonoBehaviour
     {
         Rigidbody2D body = this.GetComponent<Rigidbody2D>();
         PlayerInput playerInput = this.GetComponent<PlayerInput>();
-        playerInput.Fire += () =>
+        playerInput.OnKeyPressed += (string key) =>
         {
-            // TODO: Add Fire Stuff.
+            if (key == "FIRE")
+            {
+                // TODO: Add Fire Stuff.
+            }
         };
     }
 }

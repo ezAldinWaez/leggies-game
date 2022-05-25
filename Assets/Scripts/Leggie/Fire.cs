@@ -6,7 +6,7 @@ public class Fire : MonoBehaviour
 {
     [SerializeField] public float fireDuration { get; private set; } = 5;
     [SerializeField] public float cooldownDuration { get; private set; } = 7;
-    [SerializeField] private Color cooldownColor = new Color(0.3f, 0, 0, 0.3f);
+    [SerializeField] private Color cooldownColor = new Color(1, 0.78431374f, 0.78431374f, 1);
     public float timeSinceLastFire { get; private set; }
     public bool onFire { get; private set; } = false;
     private PlayerInput playerInput;

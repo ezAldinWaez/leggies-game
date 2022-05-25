@@ -12,8 +12,8 @@ public class InputDictionaries : MonoBehaviour
             ["DOWN"] = KeyCode.S,
             ["RIGHT"] = KeyCode.D,
             ["RETREAT"] = KeyCode.Q,
-            ["FIRE"] = KeyCode.E,
-            ["FEINT"] = KeyCode.R
+            ["FIRE"] = KeyCode.R,
+            ["FEINT"] = KeyCode.E
         },
         new Dictionary<string, KeyCode> {
             ["UP"] = KeyCode.Keypad8,
@@ -21,8 +21,8 @@ public class InputDictionaries : MonoBehaviour
             ["DOWN"] = KeyCode.Keypad5,
             ["RIGHT"] = KeyCode.Keypad6,
             ["RETREAT"] = KeyCode.Keypad9,
-            ["FIRE"] = KeyCode.Keypad7,
-            ["FEINT"] = KeyCode.KeypadPlus
+            ["FIRE"] = KeyCode.KeypadPlus,
+            ["FEINT"] = KeyCode.Keypad7
         },
         new Dictionary<string, KeyCode> {
             ["UP"] = KeyCode.Y,
@@ -30,8 +30,8 @@ public class InputDictionaries : MonoBehaviour
             ["DOWN"] = KeyCode.H,
             ["RIGHT"] = KeyCode.J,
             ["RETREAT"] = KeyCode.T,
-            ["FIRE"] = KeyCode.U,
-            ["FEINT"] = KeyCode.I
+            ["FIRE"] = KeyCode.I,
+            ["FEINT"] = KeyCode.U
         },
         new Dictionary<string, KeyCode> {
             ["UP"] = KeyCode.P,
@@ -39,8 +39,8 @@ public class InputDictionaries : MonoBehaviour
             ["DOWN"] = KeyCode.Semicolon,
             ["RIGHT"] = KeyCode.Quote,
             ["RETREAT"] = KeyCode.O,
-            ["FIRE"] = KeyCode.LeftBracket,
-            ["FEINT"] = KeyCode.RightBracket
+            ["FIRE"] = KeyCode.RightBracket,
+            ["FEINT"] = KeyCode.LeftBracket
         }
     };
     private static int playersCount;

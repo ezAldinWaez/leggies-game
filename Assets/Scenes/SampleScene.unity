@@ -332,7 +332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cd9926a865f18645a2100a157b77f51, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playersCount: 4
+  playersCount: 2
   playerPrefab:
   - {fileID: 7784411557300492305, guid: 0c49ef154cef83e46b0b311b8a593e21, type: 3}
   - {fileID: 4720146893693182733, guid: 03a9d28322eaa084499c3b80316d2d5a, type: 3}

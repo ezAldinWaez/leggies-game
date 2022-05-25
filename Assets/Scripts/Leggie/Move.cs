@@ -5,10 +5,9 @@ using UnityEngine;
 public class Move : MonoBehaviour
 {
     [SerializeField] private float power = 300;
-    private Rigidbody2D body;
     private void Start()
     {
-        body = this.GetComponent<Rigidbody2D>();
+        Rigidbody2D body = this.GetComponent<Rigidbody2D>();
         PlayerInput playerInput = this.GetComponent<PlayerInput>();
         playerInput.OnKeyPressed += (string key) =>
         {

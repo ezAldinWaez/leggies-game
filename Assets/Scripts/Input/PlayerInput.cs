@@ -14,9 +14,10 @@ public class PlayerInput : MonoBehaviour
 
     void Update()
     {
-        foreach (KeyValuePair<string, KeyCode> key in Keys)
-        {
-            if (Input.GetKeyDown(key.Value)) OnKeyPressed?.Invoke(key.Key);
-        }
+        if (Keys != null)
+            foreach (KeyValuePair<string, KeyCode> key in Keys)
+            {
+                if (Input.GetKeyDown(key.Value)) OnKeyPressed?.Invoke(key.Key);
+            }
     }
 }

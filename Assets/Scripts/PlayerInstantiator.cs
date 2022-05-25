@@ -10,9 +10,9 @@ public class PlayerInstantiator : MonoBehaviour
     public static event InstantiatePlayerAction OnInstantiatePlayer;
     private void Start()
     {
-        for (int i = 0; i < playersCount; i++)
+        for (int playerNumber = 0; playerNumber < playersCount; playerNumber++)
         {
-            InstantiatePlayer(InputDictionaries.GetPlayerKeys(i), new Vector3(i, 0, 0), i);
+            InstantiatePlayer(InputDictionaries.GetPlayerKeys(playerNumber), new Vector3(playerNumber, 0, 0), playerNumber);
         }
     }
 

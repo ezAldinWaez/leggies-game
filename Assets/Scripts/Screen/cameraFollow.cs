@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
+[RequireComponent(typeof(Camera))]
 public class cameraFollow : MonoBehaviour
 {
     private Vector3 supposedPosition;

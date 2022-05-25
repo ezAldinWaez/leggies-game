@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerInput))]
+[RequireComponent(typeof(Fire))]
+[RequireComponent(typeof(PolygonCollider2D))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class Feint : MonoBehaviour
 {
     [SerializeField] private float feintDuration = 0.25f;

@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(RectTransform))]
 public class Positioner : MonoBehaviour
 {
     public float xMin, xMax, yMin, yMax;

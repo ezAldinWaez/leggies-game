@@ -7,22 +7,27 @@ public class Feint : MonoBehaviour
     [SerializeField] private float feintDuration = 0.25f;
     private Fire fire;
     private PlayerInput playerInput;
+
+    void OnReceiveInput(string key)
+    {
+        if (key == "FEINT")
+            EnableFeint();
+    }
+
     private void Start()
     {
         fire = this.GetComponent<Fire>();
         playerInput = this.transform.parent.gameObject.GetComponent<PlayerInput>();
-        playerInput.OnKeyPressed += EnableFeint;
+        playerInput.OnKeyPressed += OnReceiveInput;
     }
 
-    void EnableFeint(string key)
+    void EnableFeint()
     {
-        if (key == "FEINT" && fire.timeSinceLastFire > fire.fireDuration)
+        if (!fire.onFire)
         {
-            playerInput.OnKeyPressed -= EnableFeint;
-            this.GetComponent<SpriteRenderer>().enabled = true;
-            this.GetComponent<PolygonCollider2D>().enabled = true;
-            float newSize = fire.fireDuration + 1;
-            this.transform.localScale = new Vector3(newSize, newSize, newSize);
+            playerInput.OnKeyPressed -= OnReceiveInput;
+            ToggleFeintState();
+            SetFeintSize();
             Invoke("DisableFeint", feintDuration);
         }
     }
@@ -30,10 +35,18 @@ public class Feint : MonoBehaviour
     void DisableFeint()
     {
         if (!fire.onFire)
-        {
-            this.GetComponent<SpriteRenderer>().enabled = false;
-            this.GetComponent<PolygonCollider2D>().enabled = false;
-        }
-        playerInput.OnKeyPressed += EnableFeint;
+            ToggleFeintState();
+        playerInput.OnKeyPressed += OnReceiveInput;
+    }
+
+    private void ToggleFeintState()
+    {
+        this.GetComponent<SpriteRenderer>().enabled = !this.GetComponent<SpriteRenderer>().enabled;
+        this.GetComponent<PolygonCollider2D>().enabled = !this.GetComponent<PolygonCollider2D>().enabled;
+    }
+    private void SetFeintSize()
+    {
+        float newSize = fire.fireDuration + 1;
+        this.transform.localScale = new Vector3(newSize, newSize, newSize);
     }
 }

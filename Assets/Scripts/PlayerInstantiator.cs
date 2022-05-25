@@ -6,7 +6,7 @@ public class PlayerInstantiator : MonoBehaviour
 {
     [SerializeField] private int playersCount = 4;
     [SerializeField] private GameObject[] playerPrefab;
-    public delegate void InstantiatePlayerAction(GameObject newPlayer);
+    public delegate void InstantiatePlayerAction(GameObject newPlayer, int playerNumber);
     public static event InstantiatePlayerAction OnInstantiatePlayer;
     private void Start()
     {
@@ -21,6 +21,6 @@ public class PlayerInstantiator : MonoBehaviour
         GameObject player = Instantiate(playerPrefab[playerNumber], initialPosition, Quaternion.identity);
         player.AddComponent(typeof(PlayerInput));
         player.GetComponent<PlayerInput>().setKeys(keys);
-        OnInstantiatePlayer?.Invoke(player);
+        OnInstantiatePlayer?.Invoke(player, playerNumber);
     }
 }

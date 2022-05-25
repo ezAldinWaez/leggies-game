@@ -11,7 +11,10 @@ public class cameraFollow : MonoBehaviour
     private List<Transform> players = new List<Transform>();
     private void Awake()
     {
-        PlayerInstantiator.OnInstantiatePlayer += (GameObject newPlayer) => { players.Add(newPlayer.transform); };
+        PlayerInstantiator.OnInstantiatePlayer += (GameObject newPlayer, int playerNumber) =>
+        {
+            players.Insert(playerNumber, newPlayer.transform);
+        };
     }
     private void SetCameraSize()
     {

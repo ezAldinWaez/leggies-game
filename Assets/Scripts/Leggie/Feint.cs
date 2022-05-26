@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerInput))]
 [RequireComponent(typeof(Fire))]
-[RequireComponent(typeof(PolygonCollider2D))]
+[RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(SpriteRenderer))]
 public class Feint : MonoBehaviour
 {
@@ -30,7 +29,7 @@ public class Feint : MonoBehaviour
         if (!fire.onFire)
         {
             playerInput.OnKeyPressed -= OnReceiveInput;
-            ToggleFeintState();
+            SetFeintState(true);
             SetFeintSize();
             Invoke("DisableFeint", feintDuration);
         }
@@ -39,14 +38,14 @@ public class Feint : MonoBehaviour
     void DisableFeint()
     {
         if (!fire.onFire)
-            ToggleFeintState();
+            SetFeintState(false);
         playerInput.OnKeyPressed += OnReceiveInput;
     }
 
-    private void ToggleFeintState()
+    private void SetFeintState(bool state)
     {
-        this.GetComponent<SpriteRenderer>().enabled = !this.GetComponent<SpriteRenderer>().enabled;
-        this.GetComponent<PolygonCollider2D>().enabled = !this.GetComponent<PolygonCollider2D>().enabled;
+        this.GetComponent<SpriteRenderer>().enabled = state;
+        this.GetComponent<PolygonCollider2D>().enabled = state;
     }
     private void SetFeintSize()
     {

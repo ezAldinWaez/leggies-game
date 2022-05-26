@@ -2,8 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerInput))]
-[RequireComponent(typeof(PolygonCollider2D))]
+[RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(SpriteRenderer))]
 public class Fire : MonoBehaviour
 {
@@ -39,7 +38,7 @@ public class Fire : MonoBehaviour
         if (canMakeFire)
         {
             playerInput.OnKeyPressed -= OnReceiveInput;
-            ToggleFireState();
+            SetFireState(true);
             timeSinceLastFire = 0;
             Invoke("DisableFire", fireDuration);
         }
@@ -47,7 +46,7 @@ public class Fire : MonoBehaviour
 
     void DisableFire()
     {
-        ToggleFireState();
+        SetFireState(false);
         playerInput.OnKeyPressed += OnReceiveInput;
         ChangeColor();
         Invoke("ReturnColor", cooldownDuration);
@@ -59,11 +58,11 @@ public class Fire : MonoBehaviour
         this.transform.localScale = new Vector3(newSize, newSize, newSize);
     }
 
-    private void ToggleFireState()
+    private void SetFireState(bool state)
     {
-        this.GetComponent<SpriteRenderer>().enabled = !this.GetComponent<SpriteRenderer>().enabled;
-        this.GetComponent<PolygonCollider2D>().enabled = !this.GetComponent<PolygonCollider2D>().enabled;
-        onFire = !onFire;
+        this.GetComponent<SpriteRenderer>().enabled = state;
+        this.GetComponent<PolygonCollider2D>().enabled = state;
+        onFire = state;
     }
 
     private void ChangeColor()

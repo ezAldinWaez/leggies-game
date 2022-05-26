@@ -15,10 +15,23 @@ public class cameraFollow : MonoBehaviour
         PlayerInstantiator.OnInstantiatePlayer += (GameObject newPlayer, int playerNumber) =>
         {
             players.Insert(playerNumber, newPlayer.transform);
+            RegisterPlayerRemovalFromPlayersListWhenDead(newPlayer);
         };
     }
+
+    private void RegisterPlayerRemovalFromPlayersListWhenDead(GameObject newPlayer)
+    {
+        Die newPlayersDie = newPlayer.GetComponent<Die>();
+        if (newPlayersDie != null)
+            newPlayersDie.OnDying += () =>
+            {
+                players.Remove(newPlayer.transform);
+            };
+    }
+
     private void SetCameraSize()
     {
+        // TODO: We need the absolute center, not the weighted one.
         float maxDistanceX = 0, maxDistanceY = 0;
         for (int i = 0; i < players.Count; i++)
             for (int j = 0; j < players.Count; j++)

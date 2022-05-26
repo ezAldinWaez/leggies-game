@@ -11,8 +11,10 @@ GameObject:
   - component: {fileID: 4733279510510986330}
   - component: {fileID: 174281106899659474}
   - component: {fileID: 3106045557532212430}
+  - component: {fileID: 505500228537715608}
   - component: {fileID: 6807362240695693526}
   - component: {fileID: 238021802131589298}
+  - component: {fileID: 4802967926063467908}
   m_Layer: 0
   m_Name: Fire
   m_TagString: Untagged
@@ -28,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4592742463025534839}
   m_LocalRotation: {x: -0, y: -0, z: 0.00019202847, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 1}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -129,6 +131,27 @@ PolygonCollider2D:
       - {x: 0.09828203, y: -0.038216792}
       - {x: 0.099778816, y: 0.0027886769}
       - {x: 0.15561344, y: 0.14767471}
+--- !u!50 &505500228537715608
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4592742463025534839}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!114 &6807362240695693526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,6 +178,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   feintDuration: 0.25
+--- !u!114 &4802967926063467908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4592742463025534839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 492f155b805488543be0346e92bc1d41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4720146893693182733
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,6 +204,8 @@ GameObject:
   - component: {fileID: 4601211155413519144}
   - component: {fileID: 1193376322211698900}
   - component: {fileID: 5850269916977263099}
+  - component: {fileID: 3735438708867871406}
+  - component: {fileID: 7328108828199631786}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Untagged
@@ -307,3 +344,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 1000
+--- !u!114 &3735438708867871406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4720146893693182733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c55134fbabab1740ad8768a49f4c420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7328108828199631786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4720146893693182733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c60fb13455aad97428e1c0722402dddb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

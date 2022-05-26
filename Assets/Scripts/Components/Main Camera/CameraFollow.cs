@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(Camera))]
-public class cameraFollow : MonoBehaviour
+public class CameraFollow : MonoBehaviour
 {
     private Vector3 supposedPosition;
     public float offset1X = 0.35f, offset1Y = -0.35f, offset2X = -0.35f, offset2Y = -0.75f;

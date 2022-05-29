@@ -12,7 +12,7 @@ public class InputDictionaries : MonoBehaviour
             ["DOWN"] = KeyCode.S,
             ["RIGHT"] = KeyCode.D,
             ["RETREAT"] = KeyCode.Q,
-            ["FIRE"] = KeyCode.R,
+            ["ATTACK"] = KeyCode.R,
             ["FEINT"] = KeyCode.E
         },
         new Dictionary<string, KeyCode> {
@@ -21,7 +21,7 @@ public class InputDictionaries : MonoBehaviour
             ["DOWN"] = KeyCode.Keypad5,
             ["RIGHT"] = KeyCode.Keypad6,
             ["RETREAT"] = KeyCode.Keypad9,
-            ["FIRE"] = KeyCode.KeypadPlus,
+            ["ATTACK"] = KeyCode.KeypadPlus,
             ["FEINT"] = KeyCode.Keypad7
         },
         new Dictionary<string, KeyCode> {
@@ -30,7 +30,7 @@ public class InputDictionaries : MonoBehaviour
             ["DOWN"] = KeyCode.H,
             ["RIGHT"] = KeyCode.J,
             ["RETREAT"] = KeyCode.T,
-            ["FIRE"] = KeyCode.I,
+            ["ATTACK"] = KeyCode.I,
             ["FEINT"] = KeyCode.U
         },
         new Dictionary<string, KeyCode> {
@@ -39,7 +39,7 @@ public class InputDictionaries : MonoBehaviour
             ["DOWN"] = KeyCode.Semicolon,
             ["RIGHT"] = KeyCode.Quote,
             ["RETREAT"] = KeyCode.O,
-            ["FIRE"] = KeyCode.RightBracket,
+            ["ATTACK"] = KeyCode.RightBracket,
             ["FEINT"] = KeyCode.LeftBracket
         }
     };

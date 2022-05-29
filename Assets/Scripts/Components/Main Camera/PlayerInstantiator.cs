@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerInstantiator : MonoBehaviour
 {
     [SerializeField] private int playersCount = 4;
-    [SerializeField] private GameObject[] playerPrefab;
+    [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private Sprite[] playerSprites;
     public delegate void InstantiatePlayerAction(GameObject newPlayer, int playerNumber);
     public static event InstantiatePlayerAction OnInstantiatePlayer;
     private void Start()
@@ -18,9 +19,10 @@ public class PlayerInstantiator : MonoBehaviour
 
     private void InstantiatePlayer(Dictionary<string, KeyCode> keys, Vector3 initialPosition, int playerNumber)
     {
-        GameObject player = Instantiate(playerPrefab[playerNumber], initialPosition, Quaternion.identity);
+        GameObject player = Instantiate(playerPrefab, initialPosition, Quaternion.identity);
         player.AddComponent(typeof(PlayerInput));
         player.GetComponent<PlayerInput>().setKeys(keys);
+        player.GetComponent<SpriteRenderer>().sprite = playerSprites[playerNumber];
         OnInstantiatePlayer?.Invoke(player, playerNumber);
     }
 }

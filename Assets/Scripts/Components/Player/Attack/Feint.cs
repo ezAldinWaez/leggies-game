@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Fire))]
-[RequireComponent(typeof(Collider2D))]
+[RequireComponent(typeof(Attack))]
 [RequireComponent(typeof(SpriteRenderer))]
 public class Feint : MonoBehaviour
 {
     [SerializeField] private float feintDuration = 0.25f;
-    private Fire fire;
+    private Attack attack;
     private PlayerInput playerInput;
 
     void OnReceiveInput(string key)
@@ -19,14 +18,14 @@ public class Feint : MonoBehaviour
 
     private void Start()
     {
-        fire = this.GetComponent<Fire>();
+        attack = this.GetComponent<Attack>();
         playerInput = this.transform.parent.gameObject.GetComponent<PlayerInput>();
         playerInput.OnKeyPressed += OnReceiveInput;
     }
 
     void EnableFeint()
     {
-        if (!fire.onFire)
+        if (!attack.isAttacking)
         {
             playerInput.OnKeyPressed -= OnReceiveInput;
             SetFeintState(true);
@@ -37,7 +36,7 @@ public class Feint : MonoBehaviour
 
     void DisableFeint()
     {
-        if (!fire.onFire)
+        if (!attack.isAttacking)
             SetFeintState(false);
         playerInput.OnKeyPressed += OnReceiveInput;
     }
@@ -45,11 +44,10 @@ public class Feint : MonoBehaviour
     private void SetFeintState(bool state)
     {
         this.GetComponent<SpriteRenderer>().enabled = state;
-        this.GetComponent<PolygonCollider2D>().enabled = state;
     }
     private void SetFeintSize()
     {
-        float newSize = fire.fireDuration + 1;
+        float newSize = attack.attackDuration + 1;
         this.transform.localScale = new Vector3(newSize, newSize, newSize);
     }
 }

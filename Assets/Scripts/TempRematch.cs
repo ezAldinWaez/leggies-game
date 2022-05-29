@@ -11,7 +11,5 @@ public class TempRematch : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Backspace))
             SceneManager.LoadScene(0);
-
-
     }
 }

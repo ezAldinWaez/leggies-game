@@ -13,9 +13,9 @@ public class Attack : MonoBehaviour
     public bool isAttacking { get; private set; } = false;
     private PlayerInput playerInput;
 
-    void OnReceiveInput(KeyName key)
+    void OnReceiveInput(InputName key)
     {
-        if (key == KeyName.ATTACK)
+        if (key == InputName.ATTACK)
             EnableAttack();
     }
     private void Start()

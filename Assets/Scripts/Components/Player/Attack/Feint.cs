@@ -10,9 +10,9 @@ public class Feint : MonoBehaviour
     private Attack attack;
     private PlayerInput playerInput;
 
-    void OnReceiveInput(KeyName key)
+    void OnReceiveInput(InputName key)
     {
-        if (key == KeyName.FEINT)
+        if (key == InputName.FEINT)
             EnableFeint();
     }
 

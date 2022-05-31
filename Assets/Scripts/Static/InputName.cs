@@ -1,4 +1,4 @@
-public enum KeyName
+public enum InputName
 {
     UP, LEFT, DOWN, RIGHT, RETREAT, ATTACK, FEINT
 }

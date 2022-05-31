@@ -12,7 +12,7 @@ public class CameraFollow : MonoBehaviour
     private List<Transform> players = new();
     private void Awake()
     {
-        PlayerInstantiator.OnInstantiatePlayer += (GameObject newPlayer, int playerNumber) =>
+        PlayerBuilder.OnInstantiatePlayer += (GameObject newPlayer, int playerNumber) =>
         {
             players.Insert(playerNumber, newPlayer.transform);
             RegisterPlayerRemovalFromPlayersListWhenDead(newPlayer);

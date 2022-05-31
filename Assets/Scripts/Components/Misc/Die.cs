@@ -23,10 +23,16 @@ public class Die : MonoBehaviour
 
     private void CheckIfAttackWillKillAndDie(float attacksTimeSinceLastAttack)
     {
-        Attack myAttack = this.transform.GetChild(0).gameObject.GetComponent<Attack>();
-        if (myAttack == null)
-            SelfDestruct();
-        if (myAttack.timeSinceLastAttack > attacksTimeSinceLastAttack)
+        // TODO: Refactor this stuff ...
+        if (this.transform.childCount > 0)
+        {
+            Attack myAttack = this.transform.GetChild(0).gameObject.GetComponent<Attack>();
+            if (myAttack == null)
+                SelfDestruct();
+            if (myAttack.timeSinceLastAttack > attacksTimeSinceLastAttack)
+                SelfDestruct();
+        }
+        else
             SelfDestruct();
     }
 }

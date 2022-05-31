@@ -17,11 +17,11 @@ public class PlayerInstantiator : MonoBehaviour
         }
     }
 
-    private void InstantiatePlayer(Dictionary<string, KeyCode> keys, Vector3 initialPosition, int playerNumber)
+    private void InstantiatePlayer(Dictionary<KeyName, KeyCode> newPlayerKeys, Vector3 initialPosition, int playerNumber)
     {
         GameObject player = Instantiate(playerPrefab, initialPosition, Quaternion.identity);
-        player.AddComponent(typeof(PlayerInput));
-        player.GetComponent<PlayerInput>().setKeys(keys);
+        PlayerInput newPlayerInput = player.AddComponent<PlayerInput>();
+        newPlayerInput.setKeys(newPlayerKeys);
         player.GetComponent<SpriteRenderer>().sprite = playerSprites[playerNumber];
         OnInstantiatePlayer?.Invoke(player, playerNumber);
     }

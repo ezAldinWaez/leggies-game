@@ -10,9 +10,9 @@ public class Retreat : MonoBehaviour
     {
         Rigidbody2D movedBody = this.GetComponent<Rigidbody2D>();
         PlayerInput playerInput = this.GetComponent<PlayerInput>();
-        playerInput.OnKeyPressed += (string key) =>
+        playerInput.OnKeyPressed += (KeyName key) =>
         {
-            if (key == "RETREAT")
+            if (key == KeyName.RETREAT)
             {
                 float angle = Mathf.Atan2(movedBody.velocity.y, movedBody.velocity.x);
                 movedBody.velocity = new Vector2(0, 0);

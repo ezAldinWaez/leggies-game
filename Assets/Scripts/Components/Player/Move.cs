@@ -12,14 +12,14 @@ public class Move : MonoBehaviour
     {
         body = this.GetComponent<Rigidbody2D>();
         PlayerInput playerInput = this.GetComponent<PlayerInput>();
-        playerInput.OnKeyPressed += (string key) =>
+        playerInput.OnKeyPressed += (KeyName key) =>
         {
             switch (key)
             {
-                case "UP": body.AddForce(new Vector2(0, power)); break;
-                case "LEFT": body.AddForce(new Vector2(-power, 0)); break;
-                case "DOWN": body.AddForce(new Vector2(0, -power)); break;
-                case "RIGHT": body.AddForce(new Vector2(power, 0)); break;
+                case KeyName.UP: body.AddForce(new Vector2(0, power)); break;
+                case KeyName.LEFT: body.AddForce(new Vector2(-power, 0)); break;
+                case KeyName.DOWN: body.AddForce(new Vector2(0, -power)); break;
+                case KeyName.RIGHT: body.AddForce(new Vector2(power, 0)); break;
                 default: break;
             }
         };

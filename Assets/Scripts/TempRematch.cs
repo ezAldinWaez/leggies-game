@@ -9,7 +9,7 @@ public class TempRematch : MonoBehaviour
 {
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Backspace))
+        if (Input.GetKeyDown(KeyCode.Escape))
             SceneManager.LoadScene(0);
     }
 }

@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    public delegate void KeyPressedAction(string key);
+    public delegate void KeyPressedAction(KeyName key);
     public event KeyPressedAction OnKeyPressed;
-    private Dictionary<string, KeyCode> Keys;
-    public void setKeys(Dictionary<string, KeyCode> newKeys)
+    private Dictionary<KeyName, KeyCode> Keys;
+    public void setKeys(Dictionary<KeyName, KeyCode> newKeys)
     {
         if (Keys == null) Keys = newKeys;
     }
@@ -15,7 +15,7 @@ public class PlayerInput : MonoBehaviour
     void Update()
     {
         if (Keys != null)
-            foreach (KeyValuePair<string, KeyCode> key in Keys)
+            foreach (KeyValuePair<KeyName, KeyCode> key in Keys)
             {
                 if (Input.GetKeyDown(key.Value)) OnKeyPressed?.Invoke(key.Key);
             }

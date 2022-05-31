@@ -4,50 +4,49 @@ using UnityEngine;
 
 public class InputDictionaries : MonoBehaviour
 {
-    //TODO: public static const string for each Key name
-    private static List<Dictionary<string, KeyCode>> defaultKeysOfPlayer = new List<Dictionary<string, KeyCode>> {
-        new Dictionary<string, KeyCode> {
-            ["UP"] = KeyCode.W,
-            ["LEFT"] = KeyCode.A,
-            ["DOWN"] = KeyCode.S,
-            ["RIGHT"] = KeyCode.D,
-            ["RETREAT"] = KeyCode.Q,
-            ["ATTACK"] = KeyCode.R,
-            ["FEINT"] = KeyCode.E
+    private static List<Dictionary<KeyName, KeyCode>> defaultKeysOfPlayer = new() {
+        new () {
+            [KeyName.UP] = KeyCode.W,
+            [KeyName.LEFT] = KeyCode.A,
+            [KeyName.DOWN] = KeyCode.S,
+            [KeyName.RIGHT] = KeyCode.D,
+            [KeyName.RETREAT] = KeyCode.Q,
+            [KeyName.ATTACK] = KeyCode.R,
+            [KeyName.FEINT] = KeyCode.E
         },
-        new Dictionary<string, KeyCode> {
-            ["UP"] = KeyCode.Keypad8,
-            ["LEFT"] = KeyCode.Keypad4,
-            ["DOWN"] = KeyCode.Keypad5,
-            ["RIGHT"] = KeyCode.Keypad6,
-            ["RETREAT"] = KeyCode.Keypad9,
-            ["ATTACK"] = KeyCode.KeypadPlus,
-            ["FEINT"] = KeyCode.Keypad7
+        new () {
+            [KeyName.UP] = KeyCode.Keypad8,
+            [KeyName.LEFT] = KeyCode.Keypad4,
+            [KeyName.DOWN] = KeyCode.Keypad5,
+            [KeyName.RIGHT] = KeyCode.Keypad6,
+            [KeyName.RETREAT] = KeyCode.Keypad9,
+            [KeyName.ATTACK] = KeyCode.KeypadPlus,
+            [KeyName.FEINT] = KeyCode.Keypad7
         },
-        new Dictionary<string, KeyCode> {
-            ["UP"] = KeyCode.Y,
-            ["LEFT"] = KeyCode.G,
-            ["DOWN"] = KeyCode.H,
-            ["RIGHT"] = KeyCode.J,
-            ["RETREAT"] = KeyCode.T,
-            ["ATTACK"] = KeyCode.I,
-            ["FEINT"] = KeyCode.U
+        new () {
+            [KeyName.UP] = KeyCode.Y,
+            [KeyName.LEFT] = KeyCode.G,
+            [KeyName.DOWN] = KeyCode.H,
+            [KeyName.RIGHT] = KeyCode.J,
+            [KeyName.RETREAT] = KeyCode.T,
+            [KeyName.ATTACK] = KeyCode.I,
+            [KeyName.FEINT] = KeyCode.U
         },
-        new Dictionary<string, KeyCode> {
-            ["UP"] = KeyCode.P,
-            ["LEFT"] = KeyCode.L,
-            ["DOWN"] = KeyCode.Semicolon,
-            ["RIGHT"] = KeyCode.Quote,
-            ["RETREAT"] = KeyCode.O,
-            ["ATTACK"] = KeyCode.RightBracket,
-            ["FEINT"] = KeyCode.LeftBracket
+        new () {
+            [KeyName.UP] = KeyCode.P,
+            [KeyName.LEFT] = KeyCode.L,
+            [KeyName.DOWN] = KeyCode.Semicolon,
+            [KeyName.RIGHT] = KeyCode.Quote,
+            [KeyName.RETREAT] = KeyCode.O,
+            [KeyName.ATTACK] = KeyCode.RightBracket,
+            [KeyName.FEINT] = KeyCode.LeftBracket
         }
     };
     private static int playersCount;
 
-    public static Dictionary<string, KeyCode> GetPlayerKeys(int playerNumber)
+    public static Dictionary<KeyName, KeyCode> GetPlayerKeys(int playerNumber)
     {
-        Dictionary<string, KeyCode> playerKeys = defaultKeysOfPlayer[playerNumber];
+        Dictionary<KeyName, KeyCode> playerKeys = defaultKeysOfPlayer[playerNumber];
         return playerKeys;
     }
 }

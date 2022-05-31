@@ -9,7 +9,7 @@ public class CameraFollow : MonoBehaviour
     public float offset1X = 0.35f, offset1Y = -0.35f, offset2X = -0.35f, offset2Y = -0.75f;
     float distanceX, distanceY;
     bool isOutOfOffsetX, isOutOfOffsetY, isOutOfCenterX, isOutOfCenterY;
-    private List<Transform> players = new List<Transform>();
+    private List<Transform> players = new();
     private void Awake()
     {
         PlayerInstantiator.OnInstantiatePlayer += (GameObject newPlayer, int playerNumber) =>

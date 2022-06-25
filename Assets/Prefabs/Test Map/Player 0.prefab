@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1988504950737052647}
   - component: {fileID: 6889072065764552859}
   - component: {fileID: 37938416499913384}
+  - component: {fileID: 1572873480004740693}
   m_Layer: 0
   m_Name: Attack
   m_TagString: Untagged
@@ -190,6 +191,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 492f155b805488543be0346e92bc1d41, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1572873480004740693
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4494257630660384570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c55134fbabab1740ad8768a49f4c420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7784411557300492305
 GameObject:
   m_ObjectHideFlags: 0
@@ -206,6 +219,8 @@ GameObject:
   - component: {fileID: 7005782795359161410}
   - component: {fileID: 1930918471907276054}
   - component: {fileID: 8845327895551232207}
+  - component: {fileID: 1245224759450754417}
+  - component: {fileID: -2623223534168993831}
   m_Layer: 0
   m_Name: Player 0
   m_TagString: Player
@@ -331,7 +346,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   power: 300
-  maxSpeed: 30
 --- !u!114 &7005782795359161410
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -370,3 +384,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 419498625dcbdfd4c814e22e1a6ccddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1245224759450754417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7784411557300492305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c55134fbabab1740ad8768a49f4c420, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-2623223534168993831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7784411557300492305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc678da852942ad45b96baeda12958b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpeed: 25

@@ -61,7 +61,7 @@ public class CameraFollow : MonoBehaviour
         supposedPosition = new Vector3(newX, newY, this.transform.position.z);
     }
 
-    // The method ahead was made using drugs. If you wanna understand it, be sure to use them.
+    // TODO: The method ahead was made using drugs. If you wanna understand it, be sure to use them.
     void MoveTowardsSupposedPosition()
     {
         distanceX = supposedPosition.x - this.transform.position.x;

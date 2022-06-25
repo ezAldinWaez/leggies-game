@@ -13,6 +13,6 @@ public class PlayerInputSetter : MonoBehaviour
     {
         // TODO: Don't get them from the defaul location; use PlayerPreferences
         Dictionary<InputName, KeyCode> newPlayerKeys = DefaultInputDictionaries.defaultKeysOfPlayer[playerNumber];
-        newPlayer.AddComponent<PlayerInput>().setKeys(newPlayerKeys);
+        newPlayer.GetComponent<PlayerInput>().setKeys(newPlayerKeys);
     }
 }

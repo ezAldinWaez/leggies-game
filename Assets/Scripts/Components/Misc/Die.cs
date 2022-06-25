@@ -12,27 +12,13 @@ public class Die : MonoBehaviour
     {
         DetectAttack detectAttack = this.GetComponent<DetectAttack>();
         if (detectAttack != null && willDieByAttack)
-            detectAttack.OnAttacked += CheckIfAttackWillKillAndDie;
+            detectAttack.OnAttacked += (bool isAttackLethal) => {
+                if(isAttackLethal) SelfDestruct();
+            };
     }
     private void SelfDestruct()
     {
         OnDying?.Invoke();
         Object.Destroy(this.gameObject);
-    }
-
-
-    private void CheckIfAttackWillKillAndDie(float attacksTimeSinceLastAttack)
-    {
-        // TODO: Refactor this stuff ...
-        if (this.transform.childCount > 0)
-        {
-            Attack myAttack = this.transform.GetChild(0).gameObject.GetComponent<Attack>();
-            if (myAttack == null)
-                SelfDestruct();
-            if (myAttack.timeSinceLastAttack > attacksTimeSinceLastAttack)
-                SelfDestruct();
-        }
-        else
-            SelfDestruct();
     }
 }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(PlayerInput))]
 public class Attack : MonoBehaviour
 {
     [SerializeField] public float attackDuration { get; private set; } = 5;

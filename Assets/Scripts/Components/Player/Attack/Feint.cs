@@ -4,6 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Attack))]
 [RequireComponent(typeof(SpriteRenderer))]
+[RequireComponent(typeof(PlayerInput))]
 public class Feint : MonoBehaviour
 {
     [SerializeField] private float feintDuration = 0.25f;

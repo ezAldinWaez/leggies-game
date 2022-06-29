@@ -5,13 +5,15 @@ using System.Collections.Generic;
 [RequireComponent(typeof(Camera))]
 public class CameraFollow : MonoBehaviour
 {
-    private Vector3 supposedPosition;
+    private float sizeMargin;
+    private Vector2 minPlayersPosition, maxPlayersPosition;
     public float offset1X = 0.35f, offset1Y = -0.35f, offset2X = -0.35f, offset2Y = -0.75f;
     float distanceX, distanceY;
     bool isOutOfOffsetX, isOutOfOffsetY, isOutOfCenterX, isOutOfCenterY;
     private List<Transform> players = new();
     private void Awake()
     {
+        sizeMargin = 0.004f * Mathf.Max(Screen.height, Screen.width);
         PlayerBuilder.OnInstantiatePlayer += (GameObject newPlayer, int playerNumber) =>
         {
             players.Insert(playerNumber, newPlayer.transform);
@@ -31,39 +33,29 @@ public class CameraFollow : MonoBehaviour
 
     private void SetCameraSize()
     {
-        // TODO: We need the absolute center, not the weighted one.
-        float maxDistanceX = 0, maxDistanceY = 0;
-        for (int i = 0; i < players.Count; i++)
-            for (int j = 0; j < players.Count; j++)
-            {
-                float dX = Mathf.Abs(players[i].position.x - players[j].position.x),
-                      dY = Mathf.Abs(players[i].position.y - players[j].position.y);
-                if (dX > maxDistanceX) maxDistanceX = dX;
-                if (dY > maxDistanceY) maxDistanceY = dY;
-            }
-        // The numbers you see ahead have come from God; don't question them.
-        float minWidth = 4 + maxDistanceX, minHight = 4 + maxDistanceY;
-        if (minHight < minWidth * 2 / 5) minHight = minWidth * 2 / 5;
-        if (minWidth < minHight * 5 / 2) minWidth = minHight * 5 / 2;
-        this.GetComponent<Camera>().orthographicSize = minWidth / 5 + 2;
+        float yDistance = (maxPlayersPosition.y - minPlayersPosition.y),
+              xDistance = (maxPlayersPosition.x - minPlayersPosition.x);
+        float maxDistance = Mathf.Max(yDistance, xDistance * Screen.height / Screen.width);
+        this.GetComponent<Camera>().orthographicSize = sizeMargin + maxDistance / 2;
     }
 
-    void SetSupposedPositon()
+    void SetMinMaxPlayersPositons()
     {
-        float newX = 0, newY = 0;
-        for (int i = 0; i < players.Count; i++)
+        minPlayersPosition = maxPlayersPosition = players[0].position;
+        for (int i = 1; i < players.Count; i++)
         {
-            newX += players[i].position.x;
-            newY += players[i].position.y;
+            if (players[i].position.x > maxPlayersPosition.x) maxPlayersPosition.x = players[i].position.x;
+            else if (players[i].position.x < minPlayersPosition.x) minPlayersPosition.x = players[i].position.x;
+            if (players[i].position.y > maxPlayersPosition.y) maxPlayersPosition.y = players[i].position.y;
+            else if (players[i].position.y < minPlayersPosition.y) minPlayersPosition.y = players[i].position.y;
         }
-        newX /= players.Count;
-        newY /= players.Count;
-        supposedPosition = new Vector3(newX, newY, this.transform.position.z);
+
     }
 
     // TODO: The method ahead was made using drugs. If you wanna understand it, be sure to use them.
     void MoveTowardsSupposedPosition()
     {
+        Vector2 supposedPosition = (minPlayersPosition + maxPlayersPosition) / 2;
         distanceX = supposedPosition.x - this.transform.position.x;
         distanceY = supposedPosition.y - this.transform.position.y;
         isOutOfOffsetX = distanceX > offset1X || distanceX < offset2X;
@@ -97,8 +89,8 @@ public class CameraFollow : MonoBehaviour
     }
     void Update()
     {
+        SetMinMaxPlayersPositons();
         SetCameraSize();
-        SetSupposedPositon();
         MoveTowardsSupposedPosition();
     }
 }

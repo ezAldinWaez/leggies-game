@@ -11,6 +11,7 @@ public class CameraFollow : MonoBehaviour
     float distanceX, distanceY;
     bool isOutOfOffsetX, isOutOfOffsetY, isOutOfCenterX, isOutOfCenterY;
     private List<Transform> players = new();
+    // TODO: Split into components; stuff like tracking players list should probably be out.
     private void Awake()
     {
         sizeMargin = 0.004f * Mathf.Max(Screen.height, Screen.width);

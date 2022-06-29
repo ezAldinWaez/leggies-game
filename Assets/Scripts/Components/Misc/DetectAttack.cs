@@ -8,7 +8,6 @@ public class DetectAttack : MonoBehaviour
     public event DetectedAttackAction OnAttacked;
     public void OnDetectedAttack(float othersTimeSinceLastAttack)
     {
-        Debug.Log(isAttackLethal(othersTimeSinceLastAttack));
         OnAttacked?.Invoke(isAttackLethal(othersTimeSinceLastAttack));
     }
     public bool isAttackLethal(float othersTimeSinceLastAttack) {

@@ -1,9 +1,11 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(PlayerBuilder))]
 public class PlayerPositioner : MonoBehaviour
 {
-    [SerializeField] private Vector3[] playersInitialPositions;
+    [SerializeField] private List<Vector3> playersInitialPositions = new();
 
     private void Awake()
     {
@@ -18,9 +20,10 @@ public class PlayerPositioner : MonoBehaviour
         }
         catch (System.Exception e)
         {
-            if (e.GetType() == typeof(System.IndexOutOfRangeException))
-                Debug.Log("Duude, you didn't set the initial position of some players.");
+            Debug.Log("Duude, you didn't set the initial position of some players.");
             Debug.Log(e.Message);
+            playersInitialPositions.Add(new Vector3(0,0,0));
+            newPlayer.transform.position = playersInitialPositions[playerNumber];
         }
     }
 }

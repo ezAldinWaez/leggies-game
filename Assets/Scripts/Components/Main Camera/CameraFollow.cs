@@ -3,10 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 
 [RequireComponent(typeof(Camera))]
-[RequireComponent(typeof(PlayersListMaker))]
 public class CameraFollow : MonoBehaviour
 {
-    private List<Transform> playersList = PlayersListMaker.playersList;
+    private List<Transform> playersList = PlayersListManager.playersList;
     private float sizeMargin;
     private Vector2 minPlayersPosition, maxPlayersPosition;
     public float offset1X = 0.35f, offset1Y = -0.35f, offset2X = -0.35f, offset2Y = -0.75f;
@@ -14,6 +13,9 @@ public class CameraFollow : MonoBehaviour
     bool isOutOfOffsetX, isOutOfOffsetY, isOutOfCenterX, isOutOfCenterY;
     private void Awake()
     {
+        this.GetComponent<Camera>().orthographic = true;
+        this.GetComponent<Camera>().orthographicSize = 5;
+        transform.position = new Vector3(0, 0, -3);
         sizeMargin = 0.004f * Mathf.Max(Screen.height, Screen.width);
     }
 
@@ -89,5 +91,3 @@ public class CameraFollow : MonoBehaviour
         this.GetComponent<Camera>().orthographicSize = sizeMargin + maxDistance / 2;
     }
 }
-
-// TODO: Make documentation about this component.

@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerInput))]
 public class Retreat : MonoBehaviour
 {
-    [SerializeField] private float power = 1000;
+    [SerializeField] private float power = 2500;
     void Start()
     {
         Rigidbody2D movedBody = this.GetComponent<Rigidbody2D>();

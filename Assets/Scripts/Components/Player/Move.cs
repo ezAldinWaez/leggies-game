@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerInput))]
 public class Move : MonoBehaviour
 {
-    [SerializeField] private float power = 300;
+    [SerializeField] private float power = 800;
     private Rigidbody2D body;
     private void Start()
     {

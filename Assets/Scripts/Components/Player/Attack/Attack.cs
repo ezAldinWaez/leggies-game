@@ -7,14 +7,21 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerInput))]
 public class Attack : MonoBehaviour
 {
-    [SerializeField] public float attackDuration { get; private set; } = 5;
-    [SerializeField] public float cooldownDuration { get; private set; } = 7;
+    [SerializeField] private float attackDuration = 5, cooldownDuration = 7;
     [SerializeField] private Color cooldownColor = new Color(1, 0.78431374f, 0.78431374f, 1);
-    [SerializeField] private bool willMakeSoundWhenAttacking = true;
+    [SerializeField] private bool willSoundOnAttack = true;
     [SerializeField] private AudioClip attackSoundStart, attackSoundLoop, attackSoundEnd;
     public float timeSinceLastAttack { get; private set; }
     public bool isAttacking { get; private set; } = false;
     private PlayerInput playerInput;
+
+    public float GetAttackDuration() => attackDuration;
+    public float GetCooldownDuration() => cooldownDuration;
+    public bool GetWillSoundOnAttack() => willSoundOnAttack;
+    public AudioClip GetAttackSoundStart() => attackSoundStart;
+    public AudioClip GetAttackSoundLoop() => attackSoundLoop;
+    public AudioClip GetAttackSoundEnd() => attackSoundEnd;
+
 
     void OnReceiveInput(InputName key)
     {
@@ -40,7 +47,11 @@ public class Attack : MonoBehaviour
         bool canMakeAttack = (timeSinceLastAttack >= attackDuration + cooldownDuration);
         if (canMakeAttack)
         {
-            if (willMakeSoundWhenAttacking) StartAttackSound();
+            if (willSoundOnAttack)
+            {
+                AudioSource source = this.GetComponent<AudioSource>() ? this.GetComponent<AudioSource>() : this.gameObject.AddComponent<AudioSource>();
+                if (!source.isPlaying) StartAttackSound(); //Because it could be playing the loop from Feint.
+            }
             playerInput.OnKeyPressed -= OnReceiveInput;
             SetAttackState(true);
             timeSinceLastAttack = 0;
@@ -50,7 +61,7 @@ public class Attack : MonoBehaviour
 
     void DisableAttack()
     {
-        if (willMakeSoundWhenAttacking) StopAttackSound();
+        if (willSoundOnAttack) StopAttackSound();
         SetAttackState(false);
         playerInput.OnKeyPressed += OnReceiveInput;
         SetColor(cooldownColor);
@@ -82,7 +93,7 @@ public class Attack : MonoBehaviour
 
     private void StartAttackSound()
     {
-        AudioSource source = this.GetComponent<AudioSource>() ? this.GetComponent<AudioSource>() : this.gameObject.AddComponent<AudioSource>();
+        AudioSource source = this.GetComponent<AudioSource>();
         source.clip = attackSoundStart;
         source.loop = false;
         source.Play(0);

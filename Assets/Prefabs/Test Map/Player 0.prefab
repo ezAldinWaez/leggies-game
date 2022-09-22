@@ -178,8 +178,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e74fc72fdda6a4085f1c7ea7f9f0ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackDuration: 5
+  cooldownDuration: 7
   cooldownColor: {r: 1, g: 0.78431374, b: 0.78431374, a: 1}
-  willMakeSoundWhenAttacking: 1
+  willSoundOnAttack: 1
   attackSoundStart: {fileID: 8300000, guid: b750835641b8e1b4880a402c2c32c313, type: 3}
   attackSoundLoop: {fileID: 8300000, guid: 8916e84dab887cd4592c42f52652ad27, type: 3}
   attackSoundEnd: {fileID: 8300000, guid: d542a3d9437db3840bd002af6335cdda, type: 3}

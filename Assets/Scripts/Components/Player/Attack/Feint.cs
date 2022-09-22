@@ -8,6 +8,8 @@ using UnityEngine;
 public class Feint : MonoBehaviour
 {
     [SerializeField] private float feintDuration = 0.25f;
+    private bool willScare = false;
+
     private Attack attack;
     private PlayerInput playerInput;
 
@@ -31,14 +33,19 @@ public class Feint : MonoBehaviour
             playerInput.OnKeyPressed -= OnReceiveInput;
             SetFeintState(true);
             SetFeintSize();
-            Invoke("DisableFeint", feintDuration);
+            willScare = new System.Random().Next(0, 10) < 1;
+            float waitDuration = willScare ? feintDuration + 0.2f * attack.GetAttackDuration() : feintDuration;
+            if (willScare) StartAttackSound();
+            Invoke("DisableFeint", waitDuration);
         }
     }
 
     void DisableFeint()
     {
-        if (!attack.isAttacking)
+        if (!attack.isAttacking) {
             SetFeintState(false);
+            if (willScare) StopAttackSound(); //Because if attacking, we want the sound to continue.
+        }
         playerInput.OnKeyPressed += OnReceiveInput;
     }
 
@@ -48,7 +55,32 @@ public class Feint : MonoBehaviour
     }
     private void SetFeintSize()
     {
-        float newSize = attack.attackDuration + 1;
+        float newSize = attack.GetAttackDuration() + 1;
         this.transform.localScale = new Vector3(newSize, newSize, newSize);
     }
+    private void StartAttackSound()
+    {
+        AudioSource source = attack.GetComponent<AudioSource>() ? attack.GetComponent<AudioSource>() : attack.gameObject.AddComponent<AudioSource>();
+        source.clip = attack.GetAttackSoundStart();
+        source.loop = false;
+        source.Play(0);
+        Invoke("LoopAttackSound", source.clip.length);
+    }
+
+    private void LoopAttackSound()
+    {
+        AudioSource source = attack.GetComponent<AudioSource>();
+        source.Stop();
+        source.clip = attack.GetAttackSoundLoop();
+        source.loop = true;
+        source.Play(0);
+    }
+
+    private void StopAttackSound()
+    {
+        AudioSource source = attack.GetComponent<AudioSource>();
+        source.Stop();
+        source.loop = false;
+    }
+
 }

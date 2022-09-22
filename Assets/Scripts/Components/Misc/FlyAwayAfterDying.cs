@@ -6,7 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class FlyAwayAfterDying : MonoBehaviour
 {
-    [SerializeField] private float flyPower = 150;
+    [SerializeField] private float flyPower = 400;
     void Start()
     {
         this.GetComponent<Die>().OnDying += FlyAway;

@@ -166,6 +166,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   feintDuration: 0.25
+  willShake: 1
 --- !u!114 &6889072065764552859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -185,6 +186,7 @@ MonoBehaviour:
   attackSoundStart: {fileID: 8300000, guid: b750835641b8e1b4880a402c2c32c313, type: 3}
   attackSoundLoop: {fileID: 8300000, guid: 8916e84dab887cd4592c42f52652ad27, type: 3}
   attackSoundEnd: {fileID: 8300000, guid: d542a3d9437db3840bd002af6335cdda, type: 3}
+  willShake: 1
 --- !u!114 &37938416499913384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -438,3 +440,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e5c0d7ecfe9cf498f4989c38eb3651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flyPower: 400

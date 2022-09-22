@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using LeggiesLibrary;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(SpriteRenderer))]
@@ -11,6 +12,9 @@ public class Attack : MonoBehaviour
     [SerializeField] private Color cooldownColor = new Color(1, 0.78431374f, 0.78431374f, 1);
     [SerializeField] private bool willSoundOnAttack = true;
     [SerializeField] private AudioClip attackSoundStart, attackSoundLoop, attackSoundEnd;
+    [SerializeField] private bool willShake = true;
+    [SerializeField] private float minShake = -0.5f, maxShake = 0.3f;
+
     public float timeSinceLastAttack { get; private set; }
     public bool isAttacking { get; private set; } = false;
     private PlayerInput playerInput;
@@ -18,6 +22,7 @@ public class Attack : MonoBehaviour
     public float GetAttackDuration() => attackDuration;
     public float GetCooldownDuration() => cooldownDuration;
     public bool GetWillSoundOnAttack() => willSoundOnAttack;
+    public bool GetWillShake() => willShake;
     public AudioClip GetAttackSoundStart() => attackSoundStart;
     public AudioClip GetAttackSoundLoop() => attackSoundLoop;
     public AudioClip GetAttackSoundEnd() => attackSoundEnd;
@@ -39,7 +44,8 @@ public class Attack : MonoBehaviour
     {
         timeSinceLastAttack += Time.deltaTime;
         if (isAttacking)
-            SetAttackScale();
+            if (willShake) this.transform.localScale = Math.ShakeBaseVector(Vector3.one * (attackDuration - timeSinceLastAttack + 1), minShake, maxShake);
+            else this.transform.localScale = Vector3.one * (attackDuration - timeSinceLastAttack + 1);
     }
 
     void EnableAttack()
@@ -66,12 +72,6 @@ public class Attack : MonoBehaviour
         playerInput.OnKeyPressed += OnReceiveInput;
         SetColor(cooldownColor);
         Invoke("SetColorWhite", cooldownDuration);
-    }
-
-    void SetAttackScale()
-    {
-        float newSize = attackDuration - timeSinceLastAttack + 1;
-        this.transform.localScale = new Vector3(newSize, newSize, newSize);
     }
 
     private void SetAttackState(bool state)

@@ -745,6 +745,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6dc2f6c957acfa438a489d2aed5f7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  willShake: 1
+  minShake: -0.2
+  maxShake: 0.2
   offset1X: 0.35
   offset1Y: -0.35
   offset2X: -0.35
@@ -3949,6 +3952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3e5c0d7ecfe9cf498f4989c38eb3651, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flyPower: 150
 --- !u!50 &1663612557
 Rigidbody2D:
   serializedVersion: 4

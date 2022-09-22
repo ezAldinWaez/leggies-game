@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using LeggiesLibrary;
 
 [RequireComponent(typeof(Attack))]
 [RequireComponent(typeof(SpriteRenderer))]
@@ -8,16 +9,12 @@ using UnityEngine;
 public class Feint : MonoBehaviour
 {
     [SerializeField] private float feintDuration = 0.25f;
-    private bool willScare = false;
+    [SerializeField] private bool willShake = true;
+    [SerializeField] private float minShake = -0.5f, maxShake = 0.3f;
 
+    private bool isFeinting = false, willScare = false;
     private Attack attack;
     private PlayerInput playerInput;
-
-    void OnReceiveInput(InputName key)
-    {
-        if (key == InputName.FEINT)
-            EnableFeint();
-    }
 
     private void Start()
     {
@@ -25,24 +22,35 @@ public class Feint : MonoBehaviour
         playerInput = this.transform.parent.gameObject.GetComponent<PlayerInput>();
         playerInput.OnKeyPressed += OnReceiveInput;
     }
-
+    void OnReceiveInput(InputName key)
+    {
+        if (key == InputName.FEINT) EnableFeint();
+    }
     void EnableFeint()
     {
         if (!attack.isAttacking)
         {
+            isFeinting = true;
             playerInput.OnKeyPressed -= OnReceiveInput;
             SetFeintState(true);
-            SetFeintSize();
+            this.transform.localScale = Vector3.one * (attack.GetAttackDuration() + 1);
             willScare = new System.Random().Next(0, 10) < 1;
             float waitDuration = willScare ? feintDuration + 0.2f * attack.GetAttackDuration() : feintDuration;
             if (willScare) StartAttackSound();
             Invoke("DisableFeint", waitDuration);
         }
     }
+    void Update()
+    {
+        if (!attack.isAttacking && isFeinting && attack.GetWillShake() && willScare && willShake)
+            this.transform.localScale = Math.ShakeBaseVector(Vector3.one * (attack.GetAttackDuration() + 1), minShake, maxShake);
+    }
 
     void DisableFeint()
     {
-        if (!attack.isAttacking) {
+        isFeinting = false;
+        if (!attack.isAttacking)
+        {
             SetFeintState(false);
             if (willScare) StopAttackSound(); //Because if attacking, we want the sound to continue.
         }
@@ -52,11 +60,6 @@ public class Feint : MonoBehaviour
     private void SetFeintState(bool state)
     {
         this.GetComponent<SpriteRenderer>().enabled = state;
-    }
-    private void SetFeintSize()
-    {
-        float newSize = attack.GetAttackDuration() + 1;
-        this.transform.localScale = new Vector3(newSize, newSize, newSize);
     }
     private void StartAttackSound()
     {

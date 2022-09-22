@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using LeggiesLibrary;
 
 [RequireComponent(typeof(Camera))]
 public class CameraFollow : MonoBehaviour
 {
+    [SerializeField] private bool willShake = false; 
+    [SerializeField] private float minShake = -0.5f, maxShake = 0.5f;
     private List<Transform> playersList = PlayersListManager.playersList;
     private float sizeMargin;
     private Vector2 minPlayersPosition, maxPlayersPosition;
@@ -51,6 +54,9 @@ public class CameraFollow : MonoBehaviour
     void MoveTowardsSupposedPosition()
     {
         Vector2 supposedPosition = (minPlayersPosition + maxPlayersPosition) / 2;
+        // TODO: Make it shake not every frame, but at a serialized field shakes per second.
+        // TODO: Document Attack, Feint, and Camera shake. And LeggiesLibrary.
+        if (willShake) supposedPosition = Math.ShakeBaseVector(supposedPosition, minShake, maxShake);
         distanceX = supposedPosition.x - this.transform.position.x;
         distanceY = supposedPosition.y - this.transform.position.y;
         isOutOfOffsetX = distanceX > offset1X || distanceX < offset2X;

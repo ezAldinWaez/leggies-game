@@ -10,6 +10,8 @@ public class Attack : MonoBehaviour
     [SerializeField] public float attackDuration { get; private set; } = 5;
     [SerializeField] public float cooldownDuration { get; private set; } = 7;
     [SerializeField] private Color cooldownColor = new Color(1, 0.78431374f, 0.78431374f, 1);
+    [SerializeField] private bool willMakeSoundWhenAttacking = true;
+    [SerializeField] private AudioClip attackSoundStart, attackSoundLoop, attackSoundEnd;
     public float timeSinceLastAttack { get; private set; }
     public bool isAttacking { get; private set; } = false;
     private PlayerInput playerInput;
@@ -38,6 +40,7 @@ public class Attack : MonoBehaviour
         bool canMakeAttack = (timeSinceLastAttack >= attackDuration + cooldownDuration);
         if (canMakeAttack)
         {
+            if (willMakeSoundWhenAttacking) StartAttackSound();
             playerInput.OnKeyPressed -= OnReceiveInput;
             SetAttackState(true);
             timeSinceLastAttack = 0;
@@ -47,6 +50,7 @@ public class Attack : MonoBehaviour
 
     void DisableAttack()
     {
+        if (willMakeSoundWhenAttacking) StopAttackSound();
         SetAttackState(false);
         playerInput.OnKeyPressed += OnReceiveInput;
         SetColor(cooldownColor);
@@ -74,5 +78,35 @@ public class Attack : MonoBehaviour
     private void SetColorWhite()
     {
         SetColor(Color.white);
+    }
+
+    private void StartAttackSound()
+    {
+        AudioSource source = this.GetComponent<AudioSource>() ? this.GetComponent<AudioSource>() : this.gameObject.AddComponent<AudioSource>();
+        source.clip = attackSoundStart;
+        source.loop = false;
+        source.Play(0);
+        Invoke("LoopAttackSound", source.clip.length);
+    }
+
+    private void LoopAttackSound()
+    {
+        AudioSource source = this.GetComponent<AudioSource>();
+        source.Stop();
+        source.clip = attackSoundLoop;
+        source.loop = true;
+        source.Play(0);
+    }
+
+    private void StopAttackSound()
+    {
+        AudioSource source = this.GetComponent<AudioSource>();
+        source.Stop();
+        source.loop = false;
+        if (attackSoundEnd != null)
+        {
+            source.clip = attackSoundEnd;
+            source.Play(0);
+        }
     }
 }

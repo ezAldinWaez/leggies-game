@@ -594,6 +594,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   willDieByAttack: 1
+  deathSounds: []
+  willMakeSoundWhenDead: 0
 --- !u!1 &190638030
 GameObject:
   m_ObjectHideFlags: 0
@@ -2498,6 +2500,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   willDieByAttack: 1
+  deathSounds: []
+  willMakeSoundWhenDead: 0
 --- !u!1 &852579016
 GameObject:
   m_ObjectHideFlags: 0
@@ -2858,6 +2862,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   willDieByAttack: 1
+  deathSounds: []
+  willMakeSoundWhenDead: 0
 --- !u!1 &1106766370
 GameObject:
   m_ObjectHideFlags: 0
@@ -3431,6 +3437,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   willDieByAttack: 1
+  deathSounds: []
+  willMakeSoundWhenDead: 0
 --- !u!1 &1529187535
 GameObject:
   m_ObjectHideFlags: 0
@@ -3791,6 +3799,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   willDieByAttack: 1
+  deathSounds: []
+  willMakeSoundWhenDead: 0
 --- !u!1 &1663612550
 GameObject:
   m_ObjectHideFlags: 0
@@ -3917,6 +3927,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   willDieByAttack: 1
+  deathSounds: []
+  willMakeSoundWhenDead: 0
 --- !u!114 &1663612555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4067,6 +4079,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   willDieByAttack: 1
+  deathSounds: []
+  willMakeSoundWhenDead: 0
 --- !u!1 &1843600144
 GameObject:
   m_ObjectHideFlags: 0

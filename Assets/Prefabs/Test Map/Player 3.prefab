@@ -178,8 +178,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e74fc72fdda6a4085f1c7ea7f9f0ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackDuration: 5
+  cooldownDuration: 7
   cooldownColor: {r: 1, g: 0.78431374, b: 0.78431374, a: 1}
-  willMakeSoundWhenAttacking: 1
+  willSoundOnAttack: 1
   attackSoundStart: {fileID: 8300000, guid: b750835641b8e1b4880a402c2c32c313, type: 3}
   attackSoundLoop: {fileID: 8300000, guid: 8916e84dab887cd4592c42f52652ad27, type: 3}
   attackSoundEnd: {fileID: 8300000, guid: d542a3d9437db3840bd002af6335cdda, type: 3}
@@ -225,6 +227,7 @@ GameObject:
   - component: {fileID: 8845327895551232207}
   - component: {fileID: 1245224759450754417}
   - component: {fileID: 1552426264008009199}
+  - component: {fileID: -2565573249687504590}
   m_Layer: 0
   m_Name: Player 3
   m_TagString: Player
@@ -386,7 +389,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 176e604426c83e940b3f285f3e8fc83f, type: 3}
   - {fileID: 8300000, guid: 806b51b5ee4b81740b5de66c60d458f9, type: 3}
   - {fileID: 8300000, guid: 9db645782380c1049b9681ba24e4e3fe, type: 3}
-  willMakeSoundWhenDead: 1
 --- !u!114 &8845327895551232207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -424,3 +426,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxSpeed: 25
+--- !u!114 &-2565573249687504590
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7784411557300492305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3e5c0d7ecfe9cf498f4989c38eb3651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

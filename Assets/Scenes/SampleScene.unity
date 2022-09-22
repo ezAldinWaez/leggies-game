@@ -595,7 +595,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   willDieByAttack: 1
   deathSounds: []
-  willMakeSoundWhenDead: 0
 --- !u!1 &190638030
 GameObject:
   m_ObjectHideFlags: 0
@@ -2501,7 +2500,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   willDieByAttack: 1
   deathSounds: []
-  willMakeSoundWhenDead: 0
 --- !u!1 &852579016
 GameObject:
   m_ObjectHideFlags: 0
@@ -2861,9 +2859,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3b7361369cef642ac1083f511541f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  willDieByAttack: 1
+  willDieByAttack: 0
   deathSounds: []
-  willMakeSoundWhenDead: 0
 --- !u!1 &1106766370
 GameObject:
   m_ObjectHideFlags: 0
@@ -3438,7 +3435,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   willDieByAttack: 1
   deathSounds: []
-  willMakeSoundWhenDead: 0
 --- !u!1 &1529187535
 GameObject:
   m_ObjectHideFlags: 0
@@ -3800,7 +3796,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   willDieByAttack: 1
   deathSounds: []
-  willMakeSoundWhenDead: 0
 --- !u!1 &1663612550
 GameObject:
   m_ObjectHideFlags: 0
@@ -3814,6 +3809,8 @@ GameObject:
   - component: {fileID: 1663612553}
   - component: {fileID: 1663612555}
   - component: {fileID: 1663612554}
+  - component: {fileID: 1663612557}
+  - component: {fileID: 1663612556}
   m_Layer: 0
   m_Name: ground (0)
   m_TagString: GameController
@@ -3928,7 +3925,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   willDieByAttack: 1
   deathSounds: []
-  willMakeSoundWhenDead: 0
 --- !u!114 &1663612555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3941,6 +3937,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 419498625dcbdfd4c814e22e1a6ccddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1663612556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663612550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3e5c0d7ecfe9cf498f4989c38eb3651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!50 &1663612557
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1663612550}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &1822897602
 GameObject:
   m_ObjectHideFlags: 0
@@ -4080,7 +4109,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   willDieByAttack: 1
   deathSounds: []
-  willMakeSoundWhenDead: 0
 --- !u!1 &1843600144
 GameObject:
   m_ObjectHideFlags: 0

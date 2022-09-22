@@ -6,7 +6,7 @@ public class Die : MonoBehaviour
 {
     [SerializeField] bool willDieByAttack = true;
     [SerializeField] AudioClip[] deathSounds;
-    public bool willMakeSoundWhenDead = true;
+    private bool willMakeSoundWhenDead = true, delegateDeath = false;
     public delegate void DeathAction();
     public event DeathAction OnDying;
     private AudioSource audioSource;
@@ -29,6 +29,12 @@ public class Die : MonoBehaviour
             };
     }
 
+    public void DelegateDeath()
+    {
+        if (delegateDeath) Debug.Log("Dude, like, you can't delegate death to more than one thing. \nThe offender is " + this.name + ".");
+        delegateDeath = true;
+    }
+
     private void PlayDeathSound()
     {
         GameObject sounder = new GameObject();
@@ -41,7 +47,7 @@ public class Die : MonoBehaviour
     private void SelfDestruct()
     {
         OnDying?.Invoke();
-        Object.Destroy(this.gameObject);
+        if (!delegateDeath) Object.Destroy(this.gameObject);
     }
 
 }

@@ -11,15 +11,11 @@ public class DetectAttack : MonoBehaviour
         OnAttacked?.Invoke(isAttackLethal(othersTimeSinceLastAttack));
     }
     public bool isAttackLethal(float othersTimeSinceLastAttack) {
-        if (this.transform.childCount == 0)
-            return true;
-        Attack myAttack = this.transform.GetChild(0).gameObject.GetComponent<Attack>();
+        Attack myAttack = this.GetComponentInChildren<Attack>();
         if (myAttack == null)
             return true;
         if (myAttack.timeSinceLastAttack > othersTimeSinceLastAttack)
             return true;
         return false;
-        
-
     }
 }

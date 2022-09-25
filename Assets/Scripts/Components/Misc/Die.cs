@@ -6,7 +6,8 @@ public class Die : MonoBehaviour
 {
     [SerializeField] bool willDieByAttack = true;
     [SerializeField] AudioClip[] deathSounds;
-    private bool willMakeSoundWhenDead = true, delegateDeath = false;
+    [SerializeField] private bool willMakeSoundWhenDead = true; 
+    private bool delegateDeath = false;
     public delegate void DeathAction();
     public event DeathAction OnDying;
     private AudioSource audioSource;

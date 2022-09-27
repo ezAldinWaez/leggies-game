@@ -6,7 +6,7 @@ using LeggiesLibrary;
 [RequireComponent(typeof(Camera))]
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField] private float bigOffsetDistanceX = 1, smallOffsetDistanceX = 0.5f;
+    [SerializeField] private float followingSpeed = 1, bigOffsetDistanceX = 1, smallOffsetDistanceX = 0.5f;
     [SerializeField] private Vector2 offsetCenter = Vector2.zero;
     private List<Transform> playersList = PlayersListManager.playersList;
     private float sizeMargin;
@@ -20,6 +20,11 @@ public class CameraFollow : MonoBehaviour
         myCamera.orthographicSize = 5;
         transform.position = new Vector3(0, 0, -3);
         sizeMargin = 0.004f * Mathf.Max(Screen.height, Screen.width);
+
+        if (smallOffsetDistanceX > bigOffsetDistanceX) {
+            smallOffsetDistanceX = bigOffsetDistanceX;
+            Debug.Log("Dude? Can't have the small offset be bigger than the big, duh. I set them both to the same value, the big offset.");
+            }
     }
 
     void Update()
@@ -51,45 +56,35 @@ public class CameraFollow : MonoBehaviour
     }
 
     // TODO: Document Attack, Feint, and Camera shake. And LeggiesLibrary.
-    
-    // TODO: Extract the offset madness into a class of its own. Just give it bigOffsetDistanceX, Y, and Center and it does all the madness.
+
     void MoveTowardsSupposedPosition()
     {
         Vector2 supposedPosition = (minPlayersPosition + maxPlayersPosition) / 2;
-        Vector2 distance = supposedPosition - (Vector2) this.transform.position;
-        Vector2 bigOffsetDistance = new Vector2(bigOffsetDistanceX, bigOffsetDistanceX * Screen.height / Screen.width);
-        Vector2 positiveBigOffset = offsetCenter + bigOffsetDistance/2;
-        Vector2 negativeBigOffset = offsetCenter - bigOffsetDistance/2;
-        Vector2 positiveSmallOffset = positiveBigOffset * smallOffsetDistanceX/bigOffsetDistanceX;
-        Vector2 negativeSmallOffset = negativeBigOffset * smallOffsetDistanceX/bigOffsetDistanceX; 
-        isOutOfBigOffsetX = distance.x > positiveBigOffset.x || distance.x < negativeBigOffset.x;
-        isOutOfBigOffsetY = distance.y > positiveBigOffset.y || distance.y < negativeBigOffset.y;
-        isOutOfSmallOffsetX = distance.x > positiveSmallOffset.x || distance.x < negativeSmallOffset.x;
-        isOutOfSmallOffsetY = distance.y > positiveSmallOffset.y || distance.y < negativeSmallOffset.y;
-        if (isOutOfBigOffsetX)
-            this.transform.position = new Vector3((distance.x > positiveBigOffset.x)
-                                                   ? supposedPosition.x - positiveBigOffset.x
-                                                   : supposedPosition.x - negativeBigOffset.x,
-                                                  this.transform.position.y,
-                                                  this.transform.position.z);
-        else if (isOutOfSmallOffsetX)
-            this.transform.position = new Vector3((distance.x > positiveSmallOffset.x)
-                                                   ? this.transform.position.x + Time.deltaTime * smallOffsetDistanceX/bigOffsetDistanceX
-                                                   : this.transform.position.x - Time.deltaTime * smallOffsetDistanceX/bigOffsetDistanceX,
-                                                  this.transform.position.y,
-                                                  this.transform.position.z);
-        if (isOutOfBigOffsetY)
-            this.transform.position = new Vector3(this.transform.position.x,
-                                                  (distance.y > positiveBigOffset.y)
-                                                   ? supposedPosition.y - positiveBigOffset.y
-                                                   : supposedPosition.y - negativeBigOffset.y,
-                                                  this.transform.position.z);
-        else if (isOutOfSmallOffsetY)
-            this.transform.position = new Vector3(this.transform.position.x,
-                                                  (distance.y > positiveSmallOffset.y)
-                                                   ? this.transform.position.y + Time.deltaTime * smallOffsetDistanceX/bigOffsetDistanceX
-                                                   : this.transform.position.y - Time.deltaTime * smallOffsetDistanceX/bigOffsetDistanceX,
-                                                  this.transform.position.z);
+        Vector2 distanceToSupposedPosition = supposedPosition - (Vector2)this.transform.position;
+        LeggiesCameraOffset bigOffset = new LeggiesCameraOffset(bigOffsetDistanceX, offsetCenter);
+        LeggiesCameraOffset smallOffset = new LeggiesCameraOffset(smallOffsetDistanceX, offsetCenter);
+        if (bigOffset.isOutOfBoundariesX(supposedPosition, (Vector2)this.transform.position))
+        {
+            float offsetEdgeX = (distanceToSupposedPosition.x > bigOffset.positive.x) ? bigOffset.positive.x : bigOffset.negative.x;
+            this.transform.position = new Vector3(supposedPosition.x - offsetEdgeX, this.transform.position.y, this.transform.position.z);
+        }
+        else if (smallOffset.isOutOfBoundariesX(supposedPosition, (Vector2)this.transform.position))
+        {
+            float changeOnX = Time.deltaTime * followingSpeed;
+            if (distanceToSupposedPosition.x < smallOffset.negative.x) changeOnX *= -1;
+            this.transform.position += new Vector3(changeOnX, 0, 0);
+        }
+        if (bigOffset.isOutOfBoundariesY(supposedPosition, (Vector2)this.transform.position))
+        {
+            float offsetEdgeY = (distanceToSupposedPosition.y > bigOffset.positive.y) ? bigOffset.positive.y : bigOffset.negative.y;
+            this.transform.position = new Vector3(this.transform.position.x, supposedPosition.y - offsetEdgeY, this.transform.position.z);
+        }
+        else if (smallOffset.isOutOfBoundariesY(supposedPosition, (Vector2)this.transform.position))
+        {
+            float changeOnY = Time.deltaTime * followingSpeed;
+            if (distanceToSupposedPosition.y < smallOffset.negative.y) changeOnY *= -1;
+            this.transform.position += new Vector3(0, changeOnY, 0);
+        }
     }
 
     private void SetCameraSize()

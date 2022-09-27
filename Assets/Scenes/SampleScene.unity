@@ -804,10 +804,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6dc2f6c957acfa438a489d2aed5f7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offset1X: 4
-  offset1Y: -4
-  offset2X: 2
-  offset2Y: -0.75
+  followingSpeed: 2
+  bigOffsetDistanceX: 4
+  smallOffsetDistanceX: 1
+  offsetCenter: {x: 0, y: -0.55}
 --- !u!1 &229529945
 GameObject:
   m_ObjectHideFlags: 0

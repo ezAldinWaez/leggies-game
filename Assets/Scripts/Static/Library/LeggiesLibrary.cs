@@ -2,12 +2,12 @@ using UnityEngine;
 
 namespace LeggiesLibrary
 {
-    class Math
+    class LeggiesMath
     {
-        public static Vector3 ShakeBaseVector(Vector3 baseVector, float shakeMin, float shakeMax)
+        public static Vector3 ShakeVector3(Vector3 vector, float shakeMin, float shakeMax)
         {
             float shakeLen = Random.Range(shakeMin, shakeMax);
-            return baseVector + Vector3.one * shakeLen;
+            return vector + Vector3.one * shakeLen;
         }
     }
 

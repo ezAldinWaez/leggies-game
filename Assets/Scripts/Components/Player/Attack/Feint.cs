@@ -9,6 +9,7 @@ using LeggiesLibrary;
 public class Feint : MonoBehaviour
 {
     [SerializeField] private float feintDuration = 0.25f;
+    [SerializeField] private float scareProbability = 0.1f;
     [SerializeField] private bool willShake = true;
     [SerializeField] private float minShake = -0.5f, maxShake = 0.3f;
 
@@ -18,6 +19,14 @@ public class Feint : MonoBehaviour
 
     private void Start()
     {
+        if (scareProbability > 1.0f) {
+            Debug.Log("Dude? Like, you can't have more than 100% for probability.\nThe offender is " + this.transform.parent.gameObject.name + "'s attack.");
+            scareProbability = 1.0f;
+        }
+        if (scareProbability < 0.0f) {
+            Debug.Log("Dude? Like, you can't have less than 0% for probability.\nThe offender is " + this.transform.parent.gameObject.name + "'s attack.");
+            scareProbability = 0.0f;
+        }
         attack = this.GetComponent<Attack>();
         playerInput = this.transform.parent.gameObject.GetComponent<PlayerInput>();
         playerInput.OnKeyPressed += OnReceiveInput;
@@ -34,7 +43,7 @@ public class Feint : MonoBehaviour
             playerInput.OnKeyPressed -= OnReceiveInput;
             SetFeintState(true);
             this.transform.localScale = Vector3.one * (attack.GetAttackDuration() + 1);
-            willScare = new System.Random().Next(0, 10) < 1;
+            willScare = Random.Range(0.0f, 1.0f) <= scareProbability;
             float waitDuration = willScare ? feintDuration + 0.2f * attack.GetAttackDuration() : feintDuration;
             if (willScare) StartAttackSound();
             Invoke("DisableFeint", waitDuration);
@@ -43,7 +52,7 @@ public class Feint : MonoBehaviour
     void Update()
     {
         if (!attack.isAttacking && isFeinting && attack.GetWillShake() && willScare && willShake)
-            this.transform.localScale = Math.ShakeBaseVector(Vector3.one * (attack.GetAttackDuration() + 1), minShake, maxShake);
+            this.transform.localScale = LeggiesMath.ShakeVector3(Vector3.one * (attack.GetAttackDuration() + 1), minShake, maxShake);
     }
 
     void DisableFeint()

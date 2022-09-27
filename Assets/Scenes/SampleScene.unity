@@ -595,6 +595,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   willDieByAttack: 1
   deathSounds: []
+  willMakeSoundWhenDead: 1
 --- !u!1 &190638030
 GameObject:
   m_ObjectHideFlags: 0
@@ -716,8 +717,8 @@ GameObject:
   m_Component:
   - component: {fileID: 193714054}
   - component: {fileID: 193714053}
-  - component: {fileID: 193714052}
   - component: {fileID: 193714051}
+  - component: {fileID: 193714055}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: Untagged
@@ -733,25 +734,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 193714050}
   m_Enabled: 1
---- !u!114 &193714052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 193714050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d6dc2f6c957acfa438a489d2aed5f7eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  willShake: 1
-  minShake: -0.2
-  maxShake: 0.2
-  offset1X: 0.35
-  offset1Y: -0.35
-  offset2X: -0.35
-  offset2Y: -0.75
 --- !u!20 &193714053
 Camera:
   m_ObjectHideFlags: 0
@@ -802,7 +784,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 193714050}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -810,6 +792,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &193714055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 193714050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6dc2f6c957acfa438a489d2aed5f7eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  offset1X: 4
+  offset1Y: -4
+  offset2X: 2
+  offset2Y: -0.75
 --- !u!1 &229529945
 GameObject:
   m_ObjectHideFlags: 0
@@ -2503,6 +2501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   willDieByAttack: 1
   deathSounds: []
+  willMakeSoundWhenDead: 1
 --- !u!1 &852579016
 GameObject:
   m_ObjectHideFlags: 0
@@ -2864,6 +2863,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   willDieByAttack: 0
   deathSounds: []
+  willMakeSoundWhenDead: 1
 --- !u!1 &1106766370
 GameObject:
   m_ObjectHideFlags: 0
@@ -3438,6 +3438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   willDieByAttack: 1
   deathSounds: []
+  willMakeSoundWhenDead: 0
 --- !u!1 &1529187535
 GameObject:
   m_ObjectHideFlags: 0
@@ -3799,6 +3800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   willDieByAttack: 1
   deathSounds: []
+  willMakeSoundWhenDead: 0
 --- !u!1 &1663612550
 GameObject:
   m_ObjectHideFlags: 0
@@ -3928,6 +3930,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   willDieByAttack: 1
   deathSounds: []
+  willMakeSoundWhenDead: 0
 --- !u!114 &1663612555
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4113,6 +4116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   willDieByAttack: 1
   deathSounds: []
+  willMakeSoundWhenDead: 0
 --- !u!1 &1843600144
 GameObject:
   m_ObjectHideFlags: 0

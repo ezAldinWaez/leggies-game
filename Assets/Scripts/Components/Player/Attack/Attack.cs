@@ -44,7 +44,7 @@ public class Attack : MonoBehaviour
     {
         timeSinceLastAttack += Time.deltaTime;
         if (isAttacking)
-            if (willShake) this.transform.localScale = Math.ShakeBaseVector(Vector3.one * (attackDuration - timeSinceLastAttack + 1), minShake, maxShake);
+            if (willShake) this.transform.localScale = LeggiesMath.ShakeVector3(Vector3.one * (attackDuration - timeSinceLastAttack + 1), minShake, maxShake);
             else this.transform.localScale = Vector3.one * (attackDuration - timeSinceLastAttack + 1);
     }
 

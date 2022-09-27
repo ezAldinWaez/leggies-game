@@ -6,7 +6,7 @@ public class Die : MonoBehaviour
 {
     [SerializeField] bool willDieByAttack = true;
     [SerializeField] AudioClip[] deathSounds;
-    [SerializeField] private bool willMakeSoundWhenDead = true; 
+    [SerializeField] private bool willMakeSoundWhenDead = true;
     private bool delegateDeath = false;
     public delegate void DeathAction();
     public event DeathAction OnDying;
@@ -47,6 +47,8 @@ public class Die : MonoBehaviour
     }
     private void SelfDestruct()
     {
+        if (this.GetComponent<PlayerInput>())
+            this.GetComponent<PlayerInput>().enabled = false; //Because, wow. If death is delegated, you can still move!
         OnDying?.Invoke();
         if (!delegateDeath) Object.Destroy(this.gameObject);
     }

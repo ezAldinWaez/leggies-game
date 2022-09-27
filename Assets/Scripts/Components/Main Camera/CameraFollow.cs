@@ -6,18 +6,18 @@ using LeggiesLibrary;
 [RequireComponent(typeof(Camera))]
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField] private bool willShake = false; 
-    [SerializeField] private float minShake = -0.5f, maxShake = 0.5f;
+    [SerializeField] private float bigOffsetDistanceX = 1, smallOffsetDistanceX = 0.5f;
+    [SerializeField] private Vector2 offsetCenter = Vector2.zero;
     private List<Transform> playersList = PlayersListManager.playersList;
     private float sizeMargin;
     private Vector2 minPlayersPosition, maxPlayersPosition;
-    public float offset1X = 0.35f, offset1Y = -0.35f, offset2X = -0.35f, offset2Y = -0.75f;
-    float distanceX, distanceY;
-    bool isOutOfOffsetX, isOutOfOffsetY, isOutOfCenterX, isOutOfCenterY;
+    bool isOutOfBigOffsetX, isOutOfBigOffsetY, isOutOfSmallOffsetX, isOutOfSmallOffsetY;
+    private Camera myCamera;
     private void Awake()
     {
-        this.GetComponent<Camera>().orthographic = true;
-        this.GetComponent<Camera>().orthographicSize = 5;
+        myCamera = this.GetComponent<Camera>();
+        myCamera.orthographic = true;
+        myCamera.orthographicSize = 5;
         transform.position = new Vector3(0, 0, -3);
         sizeMargin = 0.004f * Mathf.Max(Screen.height, Screen.width);
     }
@@ -50,42 +50,45 @@ public class CameraFollow : MonoBehaviour
         }
     }
 
-    // TODO: The method ahead was made using drugs. If you wanna understand it, be sure to use them.
+    // TODO: Document Attack, Feint, and Camera shake. And LeggiesLibrary.
+    
+    // TODO: Extract the offset madness into a class of its own. Just give it bigOffsetDistanceX, Y, and Center and it does all the madness.
     void MoveTowardsSupposedPosition()
     {
         Vector2 supposedPosition = (minPlayersPosition + maxPlayersPosition) / 2;
-        // TODO: Make it shake not every frame, but at a serialized field shakes per second.
-        // TODO: Document Attack, Feint, and Camera shake. And LeggiesLibrary.
-        if (willShake) supposedPosition = Math.ShakeBaseVector(supposedPosition, minShake, maxShake);
-        distanceX = supposedPosition.x - this.transform.position.x;
-        distanceY = supposedPosition.y - this.transform.position.y;
-        isOutOfOffsetX = distanceX > offset1X || distanceX < offset2X;
-        isOutOfOffsetY = distanceY > offset1Y || distanceY < offset2Y;
-        isOutOfCenterX = distanceX > offset1X / 3.5f || distanceX < offset2X / 3.5f;
-        isOutOfCenterY = distanceY > offset1Y / 3.5f || distanceY < offset2Y / 3.5f;
-        if (isOutOfOffsetX)
-            this.transform.position = new Vector3((distanceX > offset1X)
-                                                   ? supposedPosition.x - offset1X
-                                                   : supposedPosition.x - offset2X,
+        Vector2 distance = supposedPosition - (Vector2) this.transform.position;
+        Vector2 bigOffsetDistance = new Vector2(bigOffsetDistanceX, bigOffsetDistanceX * Screen.height / Screen.width);
+        Vector2 positiveBigOffset = offsetCenter + bigOffsetDistance/2;
+        Vector2 negativeBigOffset = offsetCenter - bigOffsetDistance/2;
+        Vector2 positiveSmallOffset = positiveBigOffset * smallOffsetDistanceX/bigOffsetDistanceX;
+        Vector2 negativeSmallOffset = negativeBigOffset * smallOffsetDistanceX/bigOffsetDistanceX; 
+        isOutOfBigOffsetX = distance.x > positiveBigOffset.x || distance.x < negativeBigOffset.x;
+        isOutOfBigOffsetY = distance.y > positiveBigOffset.y || distance.y < negativeBigOffset.y;
+        isOutOfSmallOffsetX = distance.x > positiveSmallOffset.x || distance.x < negativeSmallOffset.x;
+        isOutOfSmallOffsetY = distance.y > positiveSmallOffset.y || distance.y < negativeSmallOffset.y;
+        if (isOutOfBigOffsetX)
+            this.transform.position = new Vector3((distance.x > positiveBigOffset.x)
+                                                   ? supposedPosition.x - positiveBigOffset.x
+                                                   : supposedPosition.x - negativeBigOffset.x,
                                                   this.transform.position.y,
                                                   this.transform.position.z);
-        else if (isOutOfCenterX)
-            this.transform.position = new Vector3((distanceX > offset1X / 3.5f)
-                                                   ? this.transform.position.x + Time.deltaTime / 3.5f
-                                                   : this.transform.position.x - Time.deltaTime / 3.5f,
+        else if (isOutOfSmallOffsetX)
+            this.transform.position = new Vector3((distance.x > positiveSmallOffset.x)
+                                                   ? this.transform.position.x + Time.deltaTime * smallOffsetDistanceX/bigOffsetDistanceX
+                                                   : this.transform.position.x - Time.deltaTime * smallOffsetDistanceX/bigOffsetDistanceX,
                                                   this.transform.position.y,
                                                   this.transform.position.z);
-        if (isOutOfOffsetY)
+        if (isOutOfBigOffsetY)
             this.transform.position = new Vector3(this.transform.position.x,
-                                                  (distanceY > offset1Y)
-                                                   ? supposedPosition.y - offset1Y
-                                                   : supposedPosition.y - offset2Y,
+                                                  (distance.y > positiveBigOffset.y)
+                                                   ? supposedPosition.y - positiveBigOffset.y
+                                                   : supposedPosition.y - negativeBigOffset.y,
                                                   this.transform.position.z);
-        else if (isOutOfCenterY)
+        else if (isOutOfSmallOffsetY)
             this.transform.position = new Vector3(this.transform.position.x,
-                                                  (distanceY > offset1Y / 3.5f)
-                                                   ? this.transform.position.y + Time.deltaTime / 3.5f
-                                                   : this.transform.position.y - Time.deltaTime / 3.5f,
+                                                  (distance.y > positiveSmallOffset.y)
+                                                   ? this.transform.position.y + Time.deltaTime * smallOffsetDistanceX/bigOffsetDistanceX
+                                                   : this.transform.position.y - Time.deltaTime * smallOffsetDistanceX/bigOffsetDistanceX,
                                                   this.transform.position.z);
     }
 
@@ -94,6 +97,6 @@ public class CameraFollow : MonoBehaviour
         float yDistance = (maxPlayersPosition.y - minPlayersPosition.y),
               xDistance = (maxPlayersPosition.x - minPlayersPosition.x);
         float maxDistance = Mathf.Max(yDistance, xDistance * Screen.height / Screen.width);
-        this.GetComponent<Camera>().orthographicSize = sizeMargin + maxDistance / 2;
+        myCamera.orthographicSize = sizeMargin + maxDistance / 2;
     }
 }

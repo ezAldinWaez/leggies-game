@@ -804,9 +804,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d6dc2f6c957acfa438a489d2aed5f7eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  followingSpeed: 2
-  bigOffsetDistanceX: 4
-  smallOffsetDistanceX: 1
+  followingSpeed: 1
+  distanceFromBigOffsetX: 1
+  distanceFromSmallOffsetX: 0.5
   offsetCenter: {x: 0, y: -0.55}
 --- !u!1 &229529945
 GameObject:

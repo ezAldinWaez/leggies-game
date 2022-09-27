@@ -6,7 +6,7 @@ using LeggiesLibrary;
 [RequireComponent(typeof(Camera))]
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField] private float followingSpeed = 1, bigOffsetDistanceX = 1, smallOffsetDistanceX = 0.5f;
+    [SerializeField] private float followingSpeed = 1, distanceFromBigOffsetX = 1, distanceFromSmallOffsetX = 0.5f;
     [SerializeField] private Vector2 offsetCenter = Vector2.zero;
     private List<Transform> playersList = PlayersListManager.playersList;
     private float sizeMargin;
@@ -21,8 +21,8 @@ public class CameraFollow : MonoBehaviour
         transform.position = new Vector3(0, 0, -3);
         sizeMargin = 0.004f * Mathf.Max(Screen.height, Screen.width);
 
-        if (smallOffsetDistanceX > bigOffsetDistanceX) {
-            smallOffsetDistanceX = bigOffsetDistanceX;
+        if (distanceFromSmallOffsetX > distanceFromBigOffsetX) {
+            distanceFromSmallOffsetX = distanceFromBigOffsetX;
             Debug.Log("Dude? Can't have the small offset be bigger than the big, duh. I set them both to the same value, the big offset.");
             }
     }
@@ -55,14 +55,12 @@ public class CameraFollow : MonoBehaviour
         }
     }
 
-    // TODO: Document Attack, Feint, and Camera shake. And LeggiesLibrary.
-
     void MoveTowardsSupposedPosition()
     {
         Vector2 supposedPosition = (minPlayersPosition + maxPlayersPosition) / 2;
         Vector2 distanceToSupposedPosition = supposedPosition - (Vector2)this.transform.position;
-        LeggiesCameraOffset bigOffset = new LeggiesCameraOffset(bigOffsetDistanceX, offsetCenter);
-        LeggiesCameraOffset smallOffset = new LeggiesCameraOffset(smallOffsetDistanceX, offsetCenter);
+        LeggiesCameraOffset bigOffset = new LeggiesCameraOffset(distanceFromBigOffsetX, offsetCenter);
+        LeggiesCameraOffset smallOffset = new LeggiesCameraOffset(distanceFromSmallOffsetX, offsetCenter);
         if (bigOffset.isOutOfBoundariesX(supposedPosition, (Vector2)this.transform.position))
         {
             float offsetEdgeX = (distanceToSupposedPosition.x > bigOffset.positive.x) ? bigOffset.positive.x : bigOffset.negative.x;

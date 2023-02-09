@@ -13,7 +13,7 @@ public class SpeedLimiter : MonoBehaviour
     private void Update()
     {
         // The following came from the law of terminal speed and air resistance.
-        float forceToReduce = body.mass * body.gravityScale * (float) System.Math.Pow(body.velocity.magnitude / maxSpeed, 2);
+        float forceToReduce = body.mass * body.gravityScale * (float)System.Math.Pow(body.velocity.magnitude / maxSpeed, 2);
         ReduceSpeed(forceToReduce);
     }
 

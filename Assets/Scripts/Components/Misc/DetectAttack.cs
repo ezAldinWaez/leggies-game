@@ -10,7 +10,8 @@ public class DetectAttack : MonoBehaviour
     {
         OnAttacked?.Invoke(isAttackLethal(othersTimeSinceLastAttack));
     }
-    public bool isAttackLethal(float othersTimeSinceLastAttack) {
+    private bool isAttackLethal(float othersTimeSinceLastAttack)
+    {
         Attack myAttack = this.GetComponentInChildren<Attack>();
         if (myAttack == null)
             return true;

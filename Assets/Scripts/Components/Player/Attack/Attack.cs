@@ -8,6 +8,7 @@ using LeggiesLibrary;
 [RequireComponent(typeof(PlayerInput))]
 public class Attack : MonoBehaviour
 {
+    // TODO: Split this into some components.
     [SerializeField] private float attackDuration = 5, cooldownDuration = 7;
     [SerializeField] private Color cooldownColor = new Color(1, 0.78431374f, 0.78431374f, 1);
     [SerializeField] private bool willSoundOnAttack = true;
@@ -21,18 +22,11 @@ public class Attack : MonoBehaviour
 
     public float GetAttackDuration() => attackDuration;
     public float GetCooldownDuration() => cooldownDuration;
-    public bool GetWillSoundOnAttack() => willSoundOnAttack;
     public bool GetWillShake() => willShake;
     public AudioClip GetAttackSoundStart() => attackSoundStart;
     public AudioClip GetAttackSoundLoop() => attackSoundLoop;
     public AudioClip GetAttackSoundEnd() => attackSoundEnd;
 
-
-    void OnReceiveInput(InputName key)
-    {
-        if (key == InputName.ATTACK)
-            EnableAttack();
-    }
     private void Start()
     {
         timeSinceLastAttack = attackDuration + cooldownDuration;
@@ -44,8 +38,16 @@ public class Attack : MonoBehaviour
     {
         timeSinceLastAttack += Time.deltaTime;
         if (isAttacking)
-            if (willShake) this.transform.localScale = LeggiesMath.ShakeVector3(Vector3.one * (attackDuration - timeSinceLastAttack + 1), minShake, maxShake);
-            else this.transform.localScale = Vector3.one * (attackDuration - timeSinceLastAttack + 1);
+            if (willShake)
+                this.transform.localScale = LeggiesMath.ShakeVector3(Vector3.one * (attackDuration - timeSinceLastAttack + 1), minShake, maxShake);
+            else
+                this.transform.localScale = Vector3.one * (attackDuration - timeSinceLastAttack + 1);
+    }
+
+    void OnReceiveInput(InputName key)
+    {
+        if (key == InputName.ATTACK)
+            EnableAttack();
     }
 
     void EnableAttack()
@@ -56,7 +58,8 @@ public class Attack : MonoBehaviour
             if (willSoundOnAttack)
             {
                 AudioSource source = this.GetComponent<AudioSource>() ? this.GetComponent<AudioSource>() : this.gameObject.AddComponent<AudioSource>();
-                if (!source.isPlaying) StartAttackSound(); //Because it could be playing the loop from Feint.
+                if (!source.isPlaying)
+                    StartAttackSound(); //Because it could be playing the loop from Feint.
             }
             playerInput.OnKeyPressed -= OnReceiveInput;
             SetAttackState(true);

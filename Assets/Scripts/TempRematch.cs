@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-// TODO: Remove this from existence.
-
 public class TempRematch : MonoBehaviour
 {
+    // TODO: Remove this from existence.
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

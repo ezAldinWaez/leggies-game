@@ -11,7 +11,8 @@ public class DefaultInputDictionaries
             [InputName.RIGHT] = KeyCode.D,
             [InputName.RETREAT] = KeyCode.Q,
             [InputName.ATTACK] = KeyCode.R,
-            [InputName.FEINT] = KeyCode.E
+            [InputName.FEINT] = KeyCode.E,
+            [InputName.THROW] = KeyCode.C,
         },
         new () {
             [InputName.UP] = KeyCode.Keypad8,
@@ -20,7 +21,8 @@ public class DefaultInputDictionaries
             [InputName.RIGHT] = KeyCode.Keypad6,
             [InputName.RETREAT] = KeyCode.Keypad9,
             [InputName.ATTACK] = KeyCode.KeypadPlus,
-            [InputName.FEINT] = KeyCode.Keypad7
+            [InputName.FEINT] = KeyCode.Keypad7,
+            [InputName.THROW] = KeyCode.Keypad3,
         },
         new () {
             [InputName.UP] = KeyCode.Y,
@@ -29,7 +31,8 @@ public class DefaultInputDictionaries
             [InputName.RIGHT] = KeyCode.J,
             [InputName.RETREAT] = KeyCode.T,
             [InputName.ATTACK] = KeyCode.I,
-            [InputName.FEINT] = KeyCode.U
+            [InputName.FEINT] = KeyCode.U,
+            [InputName.THROW] = KeyCode.M,
         },
         new () {
             [InputName.UP] = KeyCode.P,
@@ -38,7 +41,8 @@ public class DefaultInputDictionaries
             [InputName.RIGHT] = KeyCode.Quote,
             [InputName.RETREAT] = KeyCode.O,
             [InputName.ATTACK] = KeyCode.RightBracket,
-            [InputName.FEINT] = KeyCode.LeftBracket
+            [InputName.FEINT] = KeyCode.LeftBracket,
+            [InputName.THROW] = KeyCode.Return,
         }
     };
 }

@@ -467,8 +467,6 @@ GameObject:
   - component: {fileID: 184949825}
   - component: {fileID: 184949824}
   - component: {fileID: 184949823}
-  - component: {fileID: 184949827}
-  - component: {fileID: 184949826}
   m_Layer: 0
   m_Name: ground (23)
   m_TagString: GameController
@@ -569,33 +567,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 26
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &184949826
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 184949822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 419498625dcbdfd4c814e22e1a6ccddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &184949827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 184949822}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae3b7361369cef642ac1083f511541f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  willDieByAttack: 1
-  deathSounds: []
-  willMakeSoundWhenDead: 1
 --- !u!1 &190638030
 GameObject:
   m_ObjectHideFlags: 0
@@ -2373,8 +2344,6 @@ GameObject:
   - component: {fileID: 765794463}
   - component: {fileID: 765794462}
   - component: {fileID: 765794461}
-  - component: {fileID: 765794465}
-  - component: {fileID: 765794464}
   m_Layer: 0
   m_Name: ground (26)
   m_TagString: GameController
@@ -2475,33 +2444,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &765794464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 765794460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 419498625dcbdfd4c814e22e1a6ccddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &765794465
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 765794460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae3b7361369cef642ac1083f511541f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  willDieByAttack: 1
-  deathSounds: []
-  willMakeSoundWhenDead: 1
 --- !u!1 &852579016
 GameObject:
   m_ObjectHideFlags: 0
@@ -2735,8 +2677,6 @@ GameObject:
   - component: {fileID: 913462081}
   - component: {fileID: 913462080}
   - component: {fileID: 913462079}
-  - component: {fileID: 913462083}
-  - component: {fileID: 913462082}
   m_Layer: 0
   m_Name: ground (19)
   m_TagString: GameController
@@ -2837,33 +2777,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &913462082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 913462078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 419498625dcbdfd4c814e22e1a6ccddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &913462083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 913462078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae3b7361369cef642ac1083f511541f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  willDieByAttack: 0
-  deathSounds: []
-  willMakeSoundWhenDead: 1
 --- !u!1 &1106766370
 GameObject:
   m_ObjectHideFlags: 0
@@ -3020,7 +2933,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aade705e8d8f0f94aa350c5391429d99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playersInitialPositions: []
+  playersInitialPositions:
+  - {x: 1, y: 2, z: 0}
+  - {x: -2, y: 3, z: 0}
+  - {x: 12, y: 3, z: 0}
+  - {x: 4, y: 4, z: 0}
 --- !u!114 &1176619058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3310,8 +3227,6 @@ GameObject:
   - component: {fileID: 1466240574}
   - component: {fileID: 1466240573}
   - component: {fileID: 1466240572}
-  - component: {fileID: 1466240576}
-  - component: {fileID: 1466240575}
   m_Layer: 0
   m_Name: ground (5)
   m_TagString: GameController
@@ -3412,33 +3327,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1466240575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1466240571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 419498625dcbdfd4c814e22e1a6ccddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1466240576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1466240571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae3b7361369cef642ac1083f511541f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  willDieByAttack: 1
-  deathSounds: []
-  willMakeSoundWhenDead: 0
 --- !u!1 &1529187535
 GameObject:
   m_ObjectHideFlags: 0
@@ -3672,8 +3560,6 @@ GameObject:
   - component: {fileID: 1542506515}
   - component: {fileID: 1542506514}
   - component: {fileID: 1542506513}
-  - component: {fileID: 1542506517}
-  - component: {fileID: 1542506516}
   m_Layer: 0
   m_Name: ground (3)
   m_TagString: GameController
@@ -3774,33 +3660,117 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1542506516
-MonoBehaviour:
+--- !u!1 &1561614824
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1542506512}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 419498625dcbdfd4c814e22e1a6ccddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1542506517
-MonoBehaviour:
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1561614827}
+  - component: {fileID: 1561614826}
+  - component: {fileID: 1561614825}
+  m_Layer: 0
+  m_Name: ground (39)
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!61 &1561614825
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1542506512}
+  m_GameObject: {fileID: 1561614824}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae3b7361369cef642ac1083f511541f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  willDieByAttack: 1
-  deathSounds: []
-  willMakeSoundWhenDead: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.7, y: 0.7}
+    newSize: {x: 0.7, y: 0.7}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 0.7}
+  m_EdgeRadius: 0
+--- !u!212 &1561614826
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561614824}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 4b5838a6249817947ac3d9443b4e5dd3, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.7, y: 0.7}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &1561614827
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1561614824}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -20.919699, y: -4.995804, z: -1.6052}
+  m_LocalScale: {x: 7.5303764, y: 5.207165, z: 4.503055}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 42
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1663612550
 GameObject:
   m_ObjectHideFlags: 0
@@ -3812,10 +3782,6 @@ GameObject:
   - component: {fileID: 1663612552}
   - component: {fileID: 1663612551}
   - component: {fileID: 1663612553}
-  - component: {fileID: 1663612555}
-  - component: {fileID: 1663612554}
-  - component: {fileID: 1663612557}
-  - component: {fileID: 1663612556}
   m_Layer: 0
   m_Name: ground (0)
   m_TagString: GameController
@@ -3916,67 +3882,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 0.7}
   m_EdgeRadius: 0
---- !u!114 &1663612554
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1663612550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae3b7361369cef642ac1083f511541f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  willDieByAttack: 1
-  deathSounds: []
-  willMakeSoundWhenDead: 0
---- !u!114 &1663612555
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1663612550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 419498625dcbdfd4c814e22e1a6ccddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1663612556
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1663612550}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3e5c0d7ecfe9cf498f4989c38eb3651, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  flyPower: 150
---- !u!50 &1663612557
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1663612550}
-  m_BodyType: 2
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1 &1822897602
 GameObject:
   m_ObjectHideFlags: 0
@@ -3988,8 +3893,6 @@ GameObject:
   - component: {fileID: 1822897605}
   - component: {fileID: 1822897604}
   - component: {fileID: 1822897603}
-  - component: {fileID: 1822897607}
-  - component: {fileID: 1822897606}
   m_Layer: 0
   m_Name: ground (32)
   m_TagString: GameController
@@ -4090,33 +3993,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 35
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1822897606
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1822897602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 419498625dcbdfd4c814e22e1a6ccddc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1822897607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1822897602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae3b7361369cef642ac1083f511541f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  willDieByAttack: 1
-  deathSounds: []
-  willMakeSoundWhenDead: 0
 --- !u!1 &1843600144
 GameObject:
   m_ObjectHideFlags: 0

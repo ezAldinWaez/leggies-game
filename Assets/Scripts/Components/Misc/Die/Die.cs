@@ -6,7 +6,7 @@ using LeggiesLibrary;
 public class Die : MonoBehaviour
 {
     // TODO: Update docs about this.
-    // TODO: Split this into some components.
+    // TODO: Split this into some components--Abstract DieCause and DieMethod, for each Cause a class that implements DieCause; for each Method a class that implements DieMethod (we have vanilla die and fly die). Each DieMethod has an array of Causes in which you add which Causes it will subscribe to. Each Cause must have one Method only that responds to its Event. Die subscribes to the Events of all Components of type DieMethod to emit its own general DieEvent for stuff to subscribe so.
     [SerializeField] public bool willDieByAttack = true;
     [SerializeField] public bool willDieByThrow = true;
     [SerializeField] public bool willDieByTimeout = false;

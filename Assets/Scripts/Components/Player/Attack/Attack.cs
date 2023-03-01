@@ -8,7 +8,6 @@ using LeggiesLibrary;
 [RequireComponent(typeof(PlayerInput))]
 public class Attack : MonoBehaviour
 {
-    // TODO: Split this into some components.
     [SerializeField] private float attackDuration = 5, cooldownDuration = 7;
     [SerializeField] private Color cooldownColor = new Color(1, 0.78431374f, 0.78431374f, 1);
     [SerializeField] private bool willSoundOnAttack = true;

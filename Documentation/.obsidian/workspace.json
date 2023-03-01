@@ -1,0 +1,176 @@
+{
+  "main": {
+    "id": "8fb22bebcee65000",
+    "type": "split",
+    "children": [
+      {
+        "id": "89598c0eee31ca92",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "cb14a1b2d00b08f1",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "914b54ebbe5061e9",
+    "type": "split",
+    "children": [
+      {
+        "id": "2a36bdb6685cf383",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f96a26b0239fcf16",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "0abc48171ae6dc5f",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "3be2f74a26d27053",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "20a4dd48f0326b65",
+    "type": "split",
+    "children": [
+      {
+        "id": "46bffacd09c83f78",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e3bca915d581b8c4",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": false
+              }
+            }
+          },
+          {
+            "id": "1aba57fca983bcff",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": false
+              }
+            }
+          },
+          {
+            "id": "1bbe7c00a64cba17",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "10be81aae0af5ee1",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 3
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "cb14a1b2d00b08f1",
+  "lastOpenFiles": [
+    "Index.md",
+    "Misc Scripts/FlyAwayAfterDeath.md",
+    "Misc Scripts/Die.md",
+    "def.md",
+    "Map Scripts/PlayerListManager.md",
+    "Misc Scripts/DetectAttack.md",
+    "Misc Scripts/SpeedLimiter.md",
+    "Main Camera Scripts/CameraFollow.md",
+    "Player Scripts/DetectAttackables.md",
+    "Player Scripts/Attack.md",
+    "Player Scripts/Feint.md",
+    "Static Scripts/DefaultInputDictionaries.md",
+    "Static Scripts/InputName.md",
+    "Static Scripts/LeggiesLibrary.md",
+    "Map Scripts/PlayerBuilder.md",
+    "Map Scripts/PlayerPositioner.md",
+    "Map Scripts/PlayerInputSetter.md",
+    "Player Scripts/PlayerInput.md",
+    "Player Scripts/Move.md",
+    "Player Scripts/Retreat.md",
+    "Untitled.canvas",
+    "Main Camera Scripts/Main Camera Scripts.md",
+    "Map Scripts/Map Scripts.md",
+    "Misc Scripts/Misc Scripts.md",
+    "Player Scripts/Player Scripts.md",
+    "Static Scripts/Static Scripts.md",
+    "Misc Scripts",
+    "Player Scripts",
+    "Main Camera Scripts",
+    "Map Scripts",
+    "Static Scripts"
+  ]
+}

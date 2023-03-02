@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimeoutDieCause : DieCause<float>
+public class TimeoutDieCause : DieCause
 {
+    // TODO: Make docs about this.
     private float timeElapsed = 0;
     [SerializeField] float timeoutTime = 3;
 
     void Update()
     {
         timeElapsed += Time.deltaTime;
-        OnDetectedCause(timeElapsed);
+        OnDetectedDieCause();
     }
-    protected override bool isCauseLethal(float timeElapsed)
+    protected override bool isDieCauseLethal(Dictionary<string, float> parameters)
     {
         return timeElapsed > timeoutTime;
     }

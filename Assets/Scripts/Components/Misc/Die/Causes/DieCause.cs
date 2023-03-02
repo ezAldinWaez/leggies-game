@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class DieCause<T> : MonoBehaviour
+public abstract class DieCause : MonoBehaviour
 {
+    // TODO: Make docs about this.
     public delegate void DetectedCauseAction();
-    public event DetectedCauseAction OnCause;
+    public event DetectedCauseAction OnDieCause;
 
-    public void OnDetectedCause(T parameters)
+    public void OnDetectedDieCause(Dictionary<string, float> parameters = null)
     {
-        if (isCauseLethal(parameters))
-            OnCause?.Invoke();
+        if (isDieCauseLethal(parameters))
+            OnDieCause?.Invoke();
     }
 
-    protected abstract bool isCauseLethal(T parameters);
+    protected abstract bool isDieCauseLethal(Dictionary<string, float> parameters);
 }

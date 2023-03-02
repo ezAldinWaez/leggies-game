@@ -5,11 +5,8 @@ using LeggiesLibrary;
 
 public class Die : MonoBehaviour
 {
-    // TODO: Update docs about this.
     // TODO: Split this into some components--Abstract DieCause and DieMethod, for each Cause a class that implements DieCause; for each Method a class that implements DieMethod (we have vanilla die and fly die). Each DieMethod has an array of Causes in which you add which Causes it will subscribe to. Each Cause must have one Method only that responds to its Event. Die subscribes to the Events of all Components of type DieMethod to emit its own general DieEvent for stuff to subscribe so.
-    [SerializeField] public bool willDieByAttack = true;
-    [SerializeField] public bool willDieByThrow = true;
-    [SerializeField] public bool willDieByTimeout = false;
+    // TODO: Update docs about this.
     [SerializeField] public float timeoutLimit = 60;
     [SerializeField] public bool willMakeSoundWhenDead = true;
     [SerializeField] public AudioClip[] deathSounds;
@@ -21,6 +18,10 @@ public class Die : MonoBehaviour
 
     private void Start()
     {
+        foreach (DieCause dieCause in this.GetComponents(typeof(DieCause)))
+        {
+            dieCause.OnDieCause += Dying;
+        }
         if (willMakeSoundWhenDead)
         {
             if (deathSounds.Length == 0)
@@ -34,33 +35,6 @@ public class Die : MonoBehaviour
         {
             OnDying += FlyAway;
             DelegateDeath();
-        }
-
-        if (willDieByTimeout)
-        {
-            Invoke("SelfDestruct", timeoutLimit);
-        }
-
-        if (willDieByAttack)
-        {
-            DetectAttack detectAttack = this.GetComponent<DetectAttack>();
-            if (detectAttack == null)
-            {
-                Debug.Log("Dude, you need to detect attack to be able to die by attack.");
-                return;
-            }
-            detectAttack.OnAttacked += SelfDestruct;
-        }
-
-        if (willDieByThrow)
-        {
-            DetectThrow detectThrow = this.GetComponent<DetectThrow>();
-            if (detectThrow == null)
-            {
-                Debug.Log("Dude, you need to detect throw to be able to die by throw.");
-                return;
-            }
-            detectThrow.OnThrown += SelfDestruct;
         }
     }
 
@@ -86,19 +60,14 @@ public class Die : MonoBehaviour
         delegateDeath = true;
     }
 
-    private void SelfDestruct()
+    private void Dying()
     {
+        // Prevent Player Input
         if (this.GetComponent<PlayerInput>())
             this.GetComponent<PlayerInput>().enabled = false; //Because, wow. If death is delegated, you can still move!
         OnDying?.Invoke();
         if (!delegateDeath)
             DeleteObject();
-    }
-
-    private void SelfDestruct(bool condition)
-    {
-        if (condition)
-            SelfDestruct();
     }
 
     private void DeleteObject()

@@ -5,9 +5,12 @@ using UnityEngine;
 [RequireComponent(typeof(Attack))]
 public class DetectAttackables : MonoBehaviour
 {
+    // TODO: Update docs about this.
     private void OnTriggerEnter2D(Collider2D other)
     {
         float timeSinceLastAttack = this.GetComponent<Attack>().timeSinceLastAttack;
-        other.gameObject.GetComponent<DetectAttack>()?.OnDetectedAttack(timeSinceLastAttack);
+        Dictionary<string, float> parameters = new();
+        parameters["othersTimeSinceLastAttack"] = timeSinceLastAttack;
+        other.gameObject.GetComponent<AttackDieCause>()?.OnDetectedDieCause(parameters);
     }
 }

@@ -5,8 +5,15 @@ using UnityEngine;
 public class ThrowDieCause : DieCause
 {
     // TODO: Make docs about this.
-    protected override bool isDieCauseLethal(Dictionary<string, float> parameters)
+    protected override bool isDieCauseLethal(object parameters)
     {
         return true;
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        Throwable otherThrowable = other.transform.GetComponent<Throwable>();
+        if (otherThrowable == null) return;
+        OnDetectedDieCause();
     }
 }

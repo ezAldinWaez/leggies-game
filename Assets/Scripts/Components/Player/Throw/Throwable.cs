@@ -6,11 +6,11 @@ using LeggiesLibrary;
 
 [RequireComponent(typeof(Collider2D))]
 [RequireComponent(typeof(Rigidbody2D))]
-public class ThrowableFly : MonoBehaviour
+[RequireComponent(typeof(TimeoutDieCause))]
+public class Throwable : MonoBehaviour
 {
     // TODO: Make docs about this.
-    // TODO: Make a misc fly component that makes thething fly in a random direction on start
-    private float throwDuration;
+    // TODO: Make its playing a sound use LeggiesLibrary in an Accessory.
     private bool willSoundOnThrow;
     private bool willShake;
     private float minShake, maxShake;
@@ -22,9 +22,8 @@ public class ThrowableFly : MonoBehaviour
         originalScale = this.transform.localScale;
     }
 
-    public void Boom(float throwDuration, bool willSoundOnThrow, bool willShake, float minShake, float maxShake, Vector2 flyForce)
+    public void Boom(bool willSoundOnThrow, bool willShake, float minShake, float maxShake, Vector2 flyForce)
     {
-        this.throwDuration = throwDuration;
         this.willSoundOnThrow = willSoundOnThrow;
         this.willShake = willShake;
         this.minShake = minShake;
@@ -46,8 +45,6 @@ public class ThrowableFly : MonoBehaviour
             }
             source.Play(0);
         }
-        Die myDie = this.gameObject.GetComponent<Die>();
-        myDie.timeoutLimit = throwDuration;
     }
 
     void Update()

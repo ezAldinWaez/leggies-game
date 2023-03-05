@@ -4,5 +4,11 @@ using UnityEngine;
 
 public abstract class DieMethod : MonoBehaviour
 {
-    // TODO: Extract Die Methods.
+    // TODO: Make docs about this.
+    public abstract void Die();
+
+    protected void DeleteObject()
+    {
+        Object.Destroy(this.gameObject);
+    }
 }

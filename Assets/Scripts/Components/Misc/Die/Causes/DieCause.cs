@@ -5,14 +5,15 @@ using UnityEngine;
 public abstract class DieCause : MonoBehaviour
 {
     // TODO: Make docs about this.
+    [SerializeField] public DieMethod dieMethod;
     public delegate void DetectedCauseAction();
-    public event DetectedCauseAction OnDieCause;
+    public event DetectedCauseAction OnDieCauseLethal;
 
-    public void OnDetectedDieCause(Dictionary<string, float> parameters = null)
+    public void OnDetectedDieCause(object parameters = null)
     {
         if (isDieCauseLethal(parameters))
-            OnDieCause?.Invoke();
+            OnDieCauseLethal?.Invoke();
     }
 
-    protected abstract bool isDieCauseLethal(Dictionary<string, float> parameters);
+    protected abstract bool isDieCauseLethal(object parameters);
 }

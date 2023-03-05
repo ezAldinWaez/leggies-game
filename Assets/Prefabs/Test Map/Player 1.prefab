@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 1572873480004740693}
   - component: {fileID: 6889072065764552859}
   - component: {fileID: 1988504950737052647}
-  - component: {fileID: 37938416499913384}
   m_Layer: 0
   m_Name: Attack
   m_TagString: Untagged
@@ -204,18 +203,6 @@ MonoBehaviour:
   willShake: 1
   minShake: -0.5
   maxShake: 0.3
---- !u!114 &37938416499913384
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4494257630660384570}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 492f155b805488543be0346e92bc1d41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7784411557300492305
 GameObject:
   m_ObjectHideFlags: 0
@@ -236,6 +223,8 @@ GameObject:
   - component: {fileID: 1930918471907276054}
   - component: {fileID: -7575488763766821213}
   - component: {fileID: 6235380862331873424}
+  - component: {fileID: -7239838110675980742}
+  - component: {fileID: -8865021684605295785}
   m_Layer: 0
   m_Name: Player 1
   m_TagString: Player
@@ -436,18 +425,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3b7361369cef642ac1083f511541f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  willDieByAttack: 1
-  willDieByThrow: 1
-  willDieByTimeout: 0
-  timeoutLimit: 60
-  willMakeSoundWhenDead: 1
-  deathSounds:
-  - {fileID: 8300000, guid: 81af74865a47ccd4c99d4fb112e0ce5c, type: 3}
-  - {fileID: 8300000, guid: 176e604426c83e940b3f285f3e8fc83f, type: 3}
-  - {fileID: 8300000, guid: 806b51b5ee4b81740b5de66c60d458f9, type: 3}
-  - {fileID: 8300000, guid: 9db645782380c1049b9681ba24e4e3fe, type: 3}
-  willFlyAwayAfterDying: 1
-  flyPower: 400
 --- !u!114 &-7575488763766821213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,6 +437,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19d251dc235945b4eac281f691ad4dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dieMethod: {fileID: -7239838110675980742}
 --- !u!114 &6235380862331873424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -472,3 +450,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8652667121371944a94593dddd753d92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dieMethod: {fileID: -7239838110675980742}
+--- !u!114 &-7239838110675980742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7784411557300492305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f8bf03063403b04bbdd04dacb146ad4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  flyPower: 400
+--- !u!114 &-8865021684605295785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7784411557300492305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9577ae822d695d24ba6c49326c01bfa5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathSounds:
+  - {fileID: 8300000, guid: 81af74865a47ccd4c99d4fb112e0ce5c, type: 3}
+  - {fileID: 8300000, guid: 176e604426c83e940b3f285f3e8fc83f, type: 3}
+  - {fileID: 8300000, guid: 806b51b5ee4b81740b5de66c60d458f9, type: 3}
+  - {fileID: 8300000, guid: 9db645782380c1049b9681ba24e4e3fe, type: 3}

@@ -13,12 +13,12 @@ GameObject:
   - component: {fileID: 8523712548241379527}
   - component: {fileID: 2018180320429736110}
   - component: {fileID: 8179276525083302737}
-  - component: {fileID: 7556772705874173780}
   - component: {fileID: 2842702427727266634}
   - component: {fileID: 4436267029329173162}
   - component: {fileID: 906369629981826936}
   - component: {fileID: 4821711684482571757}
   - component: {fileID: 3369828052074474877}
+  - component: {fileID: 687507614570915964}
   m_Layer: 0
   m_Name: Throwable Attack
   m_TagString: Untagged
@@ -252,18 +252,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7556772705874173780
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7909350153669714959}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2e63e81a7e85444a85144515c4e975e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2842702427727266634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,14 +276,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3b7361369cef642ac1083f511541f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  willDieByAttack: 1
-  willDieByThrow: 1
-  willDieByTimeout: 1
-  timeoutLimit: 60
-  willMakeSoundWhenDead: 0
-  deathSounds: []
-  willFlyAwayAfterDying: 0
-  flyPower: 400
 --- !u!114 &906369629981826936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,6 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19d251dc235945b4eac281f691ad4dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dieMethod: {fileID: 687507614570915964}
 --- !u!114 &4821711684482571757
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -320,6 +301,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8652667121371944a94593dddd753d92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dieMethod: {fileID: 687507614570915964}
 --- !u!114 &3369828052074474877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -332,4 +314,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7f1765ecad178c49b09e7b165c5859a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeoutTime: 3
+  dieMethod: {fileID: 687507614570915964}
+  timeoutTime: 5
+--- !u!114 &687507614570915964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7909350153669714959}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b2538a6d64ba14abf90125e7412f12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

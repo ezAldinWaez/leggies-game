@@ -5,14 +5,22 @@ using UnityEngine;
 public class AttackDieCause : DieCause
 {
     // TODO: Make docs about this.
-    protected override bool isDieCauseLethal(Dictionary<string, float> parameters)
+    protected override bool isDieCauseLethal(object othersTimeSinceLastAttack)
     {
-        if (!parameters.ContainsKey("othersTimeSinceLastAttack"))
+        if (!(othersTimeSinceLastAttack is float))
         {
-            Debug.Log("Dude, we need othersTimeSinceLastAttack as a parameter to determine whether that timeout die cause is lethal or not.");
+            Debug.Log("AttackDieCause takes a float.");
+            return false;
         }
-        float othersTimeSinceLastAttack = parameters["othersTimeSinceLastAttack"];
         Attack myAttack = this.GetComponentInChildren<Attack>();
-        return (myAttack == null || myAttack.timeSinceLastAttack > othersTimeSinceLastAttack);
+        return (myAttack == null || myAttack.timeSinceLastAttack > (float)othersTimeSinceLastAttack);
+    }
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Attack otherAttack = other.GetComponent<Attack>();
+        if (otherAttack == null) return;
+        float othersTimeSinceLastAttack = otherAttack.timeSinceLastAttack;
+        OnDetectedDieCause(othersTimeSinceLastAttack);
     }
 }

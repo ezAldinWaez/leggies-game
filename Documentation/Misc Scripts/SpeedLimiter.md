@@ -5,7 +5,7 @@
 Because if we let players move as they wish, they will become rockets. Also, some things also need a speed limit.
 ___
 
-## What it. does
+## What it does
 
 It enforces a speed limit; it will add an opposing force in Update to ensure the speed never exceeds the speed limit.
 
@@ -30,4 +30,4 @@ Attach it to what’s speed needs be limited and specify the max speed.
 ___
 
 ***25 June, 2022 - initialize***
-***21 Sept, 2022 - make air resistance style***
+***21 Sept, 2022 - change to air resistance style***

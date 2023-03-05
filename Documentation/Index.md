@@ -6,14 +6,16 @@ After each script is the date of documentation. We will document each script aft
 
 ## Contents
 
-### 1. Static Scripts
+### Static Scripts
+
+Scripts that will not be used as components, used mostly to organize stuff then components will use them.
 
 - [[InputName]]
 - [[DefaultInputDictionaries]]
 - [[LeggiesLibrary]]
 ___
 
-### 2. Map Scripts
+### Map Scripts
 
 - [[PlayerBuilder]]
 - [[PlayerPositioner]]
@@ -21,7 +23,7 @@ ___
 - [[PlayerListManager]]
 ___
 
-### 3. Player Scripts
+### Player Scripts
 
 We will discuss here the scripts that affect the player (whether a Leggie or something else).
 
@@ -33,14 +35,14 @@ We will discuss here the scripts that affect the player (whether a Leggie or som
 - [[DetectAttackables]]
 ___
 
-### 4. Main Camera Scripts
+### Main Camera Scripts
 
 We will discuss here scripts that deal with the camera, mainly its positioning.
 
 - [[CameraFollow]]
 ___
 
-### 5. Misc Scripts
+### Misc Scripts
 
 - [[SpeedLimiter]]
 - [[DetectAttack]]

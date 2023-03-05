@@ -7,7 +7,7 @@ ___
 
 ## What it does
 
-It has an event, OnKeyPressed, that sends the InputName key that was pressed. The player scripts will subscribe to this to check if their input has come.
+It has an event, OnKeyPressed, that sends the [[InputName]] key that was pressed. The player scripts will subscribe to this to check if their input has come.
 ___
 
 ## How to use it

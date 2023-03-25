@@ -6,7 +6,6 @@ using LeggiesLibrary;
 [RequireComponent(typeof(Rigidbody2D))]
 public class FlyDieMethod : DieMethod
 {
-    // TODO: Make docs about this.
     [SerializeField] float flyPower = 400;
     public override void Die()
     {

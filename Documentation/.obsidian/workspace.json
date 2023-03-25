@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "1339e75a6dbe0a8c",
+        "id": "3bc91b04fd9abb32",
         "type": "tabs",
         "children": [
           {
-            "id": "a7891c7c642923cb",
+            "id": "18a3f4e762319505",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -45,7 +45,7 @@
               "type": "search",
               "state": {
                 "query": "",
-                "matchingCase": false,
+                "matchingCase": true,
                 "explainSearch": false,
                 "collapseAll": false,
                 "extraContext": false,
@@ -65,7 +65,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "20a4dd48f0326b65",
@@ -123,11 +123,50 @@
           }
         ],
         "currentTab": 2
+      },
+      {
+        "id": "56ad6b826eef552d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "9912b1cd154c7900",
+            "type": "leaf",
+            "state": {
+              "type": "localgraph",
+              "state": {
+                "options": {
+                  "collapse-filter": true,
+                  "search": "",
+                  "localJumps": 1,
+                  "localBacklinks": true,
+                  "localForelinks": true,
+                  "localInterlinks": false,
+                  "showTags": false,
+                  "showAttachments": false,
+                  "hideUnresolved": false,
+                  "collapse-color-groups": true,
+                  "colorGroups": [],
+                  "collapse-display": true,
+                  "showArrow": false,
+                  "textFadeMultiplier": 0,
+                  "nodeSizeMultiplier": 1,
+                  "lineSizeMultiplier": 1,
+                  "collapse-forces": true,
+                  "centerStrength": 0.518713248970312,
+                  "repelStrength": 10,
+                  "linkStrength": 1,
+                  "linkDistance": 250,
+                  "scale": 0.6554983534946917,
+                  "close": true
+                }
+              }
+            }
+          }
+        ]
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 282.5
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -139,38 +178,44 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "a7891c7c642923cb",
+  "active": "18a3f4e762319505",
   "lastOpenFiles": [
     "Index.md",
-    "Static Scripts/DefaultInputDictionaries.md",
-    "Misc Scripts/FlyAwayAfterDeath.md",
-    "Misc Scripts/Die.md",
-    "def.md",
-    "Map Scripts/PlayerListManager.md",
-    "Misc Scripts/DetectAttack.md",
-    "Misc Scripts/SpeedLimiter.md",
-    "Main Camera Scripts/CameraFollow.md",
-    "Player Scripts/DetectAttackables.md",
-    "Player Scripts/Attack.md",
-    "Player Scripts/Feint.md",
-    "Static Scripts/InputName.md",
+    "Components Scripts/Players/PlayerInput.md",
     "Static Scripts/LeggiesLibrary.md",
-    "Map Scripts/PlayerBuilder.md",
-    "Map Scripts/PlayerPositioner.md",
-    "Map Scripts/PlayerInputSetter.md",
-    "Player Scripts/PlayerInput.md",
-    "Player Scripts/Move.md",
-    "Player Scripts/Retreat.md",
+    "Components Scripts/Misc/Die/Accessorries/PlaySoundDieAccessory.md",
+    "Components Scripts/Misc/Die/Accessorries/DieAccessory.md",
+    "Template.md",
+    "Components Scripts/Misc/Die/Die.md",
+    "Components Scripts/Misc/Die/Methods/ImmediateDieMethod.md",
+    "Components Scripts/Misc/Die/Methods/FlyDieMethod.md",
+    "Components Scripts/Misc/Die/Methods/DieMethod.md",
+    "Components Scripts/Misc/Die/Causes/DieCause.md",
+    "Components Scripts/Misc/Die/Causes/TimeoutDieCause.md",
+    "Components Scripts/Main Camera/CameraFollow.md",
+    "Components Scripts/Players/Move.md",
+    "Components Scripts/Players/Retreat.md",
+    "Components Scripts/Players/Attack/Feint.md",
+    "Components Scripts/Misc/Die/Causes/ThrowDieCause.md",
+    "Components Scripts/Misc/Die/Causes/AttackDieCause.md",
+    "Components Scripts/Players/Attack/Attack.md",
+    "Components Scripts/Players/Throw/Throw.md",
+    "Components Scripts/Players/Throw/Throwable.md",
+    "Components Scripts/Players/DetectAttackables.md",
+    "Components Scripts/Players/Throw",
+    "Components Scripts/Players/Attack",
+    "Components Scripts/Misc/Die/FlyAwayAfterDeath.md",
+    "Components Scripts/Misc/Die/DetectAttack.md",
+    "Components Scripts/Maps/PlayersListManager.md",
+    "Components Scripts/Misc/Die/Methods",
+    "Components Scripts/Misc/Die/Causes",
+    "Components Scripts/Misc/Die/Accessorries",
+    "Components Scripts/Maps/PlayerPositioner.md",
+    "Components Scripts",
+    "Components Scripts/Misc/Die",
     "Untitled.canvas",
-    "Main Camera Scripts/Main Camera Scripts.md",
-    "Map Scripts/Map Scripts.md",
-    "Misc Scripts/Misc Scripts.md",
-    "Player Scripts/Player Scripts.md",
-    "Static Scripts/Static Scripts.md",
-    "Misc Scripts",
-    "Player Scripts",
-    "Main Camera Scripts",
-    "Map Scripts",
-    "Static Scripts"
+    "Components Scripts/Misc",
+    "Components Scripts/Players",
+    "Components Scripts/Main Camera"
   ]
 }

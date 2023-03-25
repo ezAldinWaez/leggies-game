@@ -8,6 +8,8 @@ ___
 ## What it does
 
 It has an event, OnKeyPressed, that sends the [[InputName]] key that was pressed. The player scripts will subscribe to this to check if their input has come.
+
+It also subscribes to [[Die]]--if it exists--to disable the script on death.
 ___
 
 ## How to use it

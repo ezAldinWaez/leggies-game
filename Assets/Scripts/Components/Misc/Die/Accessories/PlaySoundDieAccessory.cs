@@ -5,7 +5,6 @@ using LeggiesLibrary;
 
 public class PlaySoundDieAccessory : DieAccessory
 {
-    // TODO: Make docs about this.
     [SerializeField] public AudioClip[] deathSounds;
     protected override void AccessoryAction()
     {

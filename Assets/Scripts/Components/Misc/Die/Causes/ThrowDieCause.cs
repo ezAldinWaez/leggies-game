@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class ThrowDieCause : DieCause
 {
-    // TODO: Make docs about this.
     protected override bool isDieCauseLethal(object parameters)
     {
         return true;

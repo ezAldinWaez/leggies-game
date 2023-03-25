@@ -1,4 +1,4 @@
-# PlayerListManager
+# PlayersListManager
 
 ## Why it was written
 

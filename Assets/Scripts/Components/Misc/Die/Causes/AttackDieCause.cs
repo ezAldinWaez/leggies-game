@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AttackDieCause : DieCause
 {
-    // TODO: Make docs about this.
     protected override bool isDieCauseLethal(object othersTimeSinceLastAttack)
     {
         if (!(othersTimeSinceLastAttack is float))

@@ -221,8 +221,8 @@ GameObject:
   - component: {fileID: 7005782795359161410}
   - component: {fileID: 323167825331794819}
   - component: {fileID: 1930918471907276054}
-  - component: {fileID: -7575488763766821213}
-  - component: {fileID: 6235380862331873424}
+  - component: {fileID: 1124464405064922933}
+  - component: {fileID: -4898778442356620507}
   - component: {fileID: -7239838110675980742}
   - component: {fileID: -8865021684605295785}
   m_Layer: 0
@@ -405,7 +405,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2e2326254e15214a898a55a228a0609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwDuration: 5
   cooldownDuration: 0.25
   willSoundOnThrow: 1
   willShake: 1
@@ -425,7 +424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae3b7361369cef642ac1083f511541f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-7575488763766821213
+--- !u!114 &1124464405064922933
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -437,8 +436,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19d251dc235945b4eac281f691ad4dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dieMethod: {fileID: -7239838110675980742}
---- !u!114 &6235380862331873424
+  dieMethod: {fileID: 0}
+--- !u!114 &-4898778442356620507
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -450,7 +449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8652667121371944a94593dddd753d92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dieMethod: {fileID: -7239838110675980742}
+  dieMethod: {fileID: 0}
 --- !u!114 &-7239838110675980742
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -5,8 +5,6 @@ using LeggiesLibrary;
 
 public class Die : MonoBehaviour
 {
-    // TODO: Update docs about this.
-
     public delegate void DeathAction();
     public event DeathAction OnDying;
 

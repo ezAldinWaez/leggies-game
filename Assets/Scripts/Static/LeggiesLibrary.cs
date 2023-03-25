@@ -44,6 +44,8 @@ namespace LeggiesLibrary
 
     class LeggiesCameraOffset
     {
+        // TODO: Throw this to CameraFollow; too specific to be in the library.
+        // TODO: Then, edit the documentation.
         public Vector2 center { get; private set; }
         public Vector2 distanceFromEdge { get; private set; }
         public Vector2 positive { get; private set; }

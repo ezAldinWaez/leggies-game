@@ -15,37 +15,56 @@ Scripts that will not be used as components, used mostly to organize stuff then 
 - [[LeggiesLibrary]]
 ___
 
-### Map Scripts
+### Components Scripts
+
+#### Maps
 
 - [[PlayerBuilder]]
 - [[PlayerPositioner]]
 - [[PlayerInputSetter]]
-- [[PlayerListManager]]
-___
+- [[PlayersListManager]]
 
-### Player Scripts
+#### Players
 
 We will discuss here the scripts that affect the player (whether a Leggie or something else).
 
 - [[PlayerInput]]
 - [[Move]]
 - [[Retreat]]
+
+##### Attack
 - [[Attack]]
 - [[Feint]]
-- [[DetectAttackables]]
-___
 
-### Main Camera Scripts
+##### Throw
+- [[Throw]]
+- [[Throwable]]
+
+#### Main Camera
 
 We will discuss here scripts that deal with the camera, mainly its positioning.
 
 - [[CameraFollow]]
-___
 
-### Misc Scripts
+#### Misc
 
 - [[SpeedLimiter]]
-- [[DetectAttack]]
+
+##### Die
 - [[Die]]
-- [[FlyAwayAfterDeath]]
+
+###### Causes
+- [[DieCause]]
+- [[AttackDieCause]]
+- [[ThrowDieCause]]
+- [[TimeoutDieCause]]
+
+###### Methods
+- [[DieMethod]]
+- [[ImmediateDieMethod]]
+- [[FlyDieMethod]]
+
+###### Accessories
+- [[DieAccessory]]
+- [[PlaySoundDieAccessory]]
 ___

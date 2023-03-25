@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TimeoutDieCause : DieCause
 {
-    // TODO: Make docs about this.
     private float timeElapsed = 0;
     [SerializeField] public float timeoutTime = 3;
 

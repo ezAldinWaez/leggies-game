@@ -5,7 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(Die))]
 public abstract class DieAccessory : MonoBehaviour
 {
-    // TODO: Make docs about this.
     void Start(){
         this.GetComponent<Die>().OnDying += AccessoryAction;
     }

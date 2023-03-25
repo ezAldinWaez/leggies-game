@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerInput : MonoBehaviour
 {
-    // TODO: Update docs about this--it now subscribes its disabling to OnDying.
     public delegate void KeyPressedAction(InputName key);
     public event KeyPressedAction OnKeyPressed;
     private Dictionary<InputName, KeyCode> Keys;

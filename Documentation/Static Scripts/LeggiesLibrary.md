@@ -12,7 +12,6 @@ It has the following classes:
 	- ShakeVector3
 	- RandomDirectionUnitVector2.
 - LeggiesSounds: It has a method to play sound from audio clip; it makes a new game object to play the audio and destroy it in the end.
-- LeggiesCameraOffset: It has the offset work needed for [[CameraFollow]].
 ___
 
 ## How to use it
@@ -22,3 +21,4 @@ ___
 
 ***27 Sept, 2022 - initialize***
 ***9 Feb, 2023 - add LeggiesSounds and LeggiesMath's RandomDirectionUnitVector2***
+***4 Jun, 2023 - remove CameraOffset from the library***

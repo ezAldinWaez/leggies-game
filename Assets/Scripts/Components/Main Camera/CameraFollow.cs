@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using LeggiesLibrary;
 
 [RequireComponent(typeof(Camera))]
 public class CameraFollow : MonoBehaviour
@@ -21,10 +20,11 @@ public class CameraFollow : MonoBehaviour
         transform.position = new Vector3(0, 0, -3);
         sizeMargin = 0.004f * Mathf.Max(Screen.height, Screen.width);
 
-        if (distanceFromSmallOffsetX > distanceFromBigOffsetX) {
+        if (distanceFromSmallOffsetX > distanceFromBigOffsetX)
+        {
             distanceFromSmallOffsetX = distanceFromBigOffsetX;
             Debug.Log("Dude? Can't have the small offset be bigger than the big, duh. I set them both to the same value, the big offset.");
-            }
+        }
     }
 
     void Update()
@@ -55,12 +55,40 @@ public class CameraFollow : MonoBehaviour
         }
     }
 
+    class CameraOffset
+    {
+        public Vector2 center { get; private set; }
+        public Vector2 distanceFromEdge { get; private set; }
+        public Vector2 positive { get; private set; }
+        public Vector2 negative { get; private set; }
+
+        public CameraOffset(float distanceFromEdgeX, Vector2 offsetCenter)
+        {
+            this.center = offsetCenter;
+            this.distanceFromEdge = new Vector2(distanceFromEdgeX, distanceFromEdgeX * Screen.height / Screen.width);
+            this.positive = offsetCenter + distanceFromEdge;
+            this.negative = offsetCenter - distanceFromEdge;
+        }
+
+        public bool isOutOfBoundariesX(Vector2 supposedPosition, Vector2 currentPosition)
+        {
+            float distanceX = supposedPosition.x - currentPosition.x;
+            return distanceX > positive.x || distanceX < negative.x;
+        }
+
+        public bool isOutOfBoundariesY(Vector2 supposedPosition, Vector2 currentPosition)
+        {
+            float distanceY = supposedPosition.y - currentPosition.y;
+            return distanceY > positive.y || distanceY < negative.y;
+        }
+    }
+
     void MoveTowardsSupposedPosition()
     {
         Vector2 supposedPosition = (minPlayersPosition + maxPlayersPosition) / 2;
         Vector2 distanceToSupposedPosition = supposedPosition - (Vector2)this.transform.position;
-        LeggiesCameraOffset bigOffset = new LeggiesCameraOffset(distanceFromBigOffsetX, offsetCenter);
-        LeggiesCameraOffset smallOffset = new LeggiesCameraOffset(distanceFromSmallOffsetX, offsetCenter);
+        CameraOffset bigOffset = new CameraOffset(distanceFromBigOffsetX, offsetCenter);
+        CameraOffset smallOffset = new CameraOffset(distanceFromSmallOffsetX, offsetCenter);
         if (bigOffset.isOutOfBoundariesX(supposedPosition, (Vector2)this.transform.position))
         {
             float offsetEdgeX = (distanceToSupposedPosition.x > bigOffset.positive.x) ? bigOffset.positive.x : bigOffset.negative.x;

@@ -436,7 +436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19d251dc235945b4eac281f691ad4dc6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dieMethod: {fileID: 0}
+  dieMethod: {fileID: -7239838110675980742}
 --- !u!114 &-4898778442356620507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,7 +449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8652667121371944a94593dddd753d92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dieMethod: {fileID: 0}
+  dieMethod: {fileID: -7239838110675980742}
 --- !u!114 &-7239838110675980742
 MonoBehaviour:
   m_ObjectHideFlags: 0

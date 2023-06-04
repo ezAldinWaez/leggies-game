@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "3bc91b04fd9abb32",
+        "id": "100cd79c49e8351d",
         "type": "tabs",
         "children": [
           {
-            "id": "18a3f4e762319505",
+            "id": "1f6705b0960def3a",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -58,6 +58,14 @@
             "type": "leaf",
             "state": {
               "type": "starred",
+              "state": {}
+            }
+          },
+          {
+            "id": "9b3226939ec75141",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
               "state": {}
             }
           }
@@ -146,8 +154,8 @@
                   "hideUnresolved": false,
                   "collapse-color-groups": true,
                   "colorGroups": [],
-                  "collapse-display": true,
-                  "showArrow": false,
+                  "collapse-display": false,
+                  "showArrow": true,
                   "textFadeMultiplier": 0,
                   "nodeSizeMultiplier": 1,
                   "lineSizeMultiplier": 1,
@@ -178,27 +186,28 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "18a3f4e762319505",
+  "active": "1f6705b0960def3a",
   "lastOpenFiles": [
-    "Index.md",
-    "Components Scripts/Players/PlayerInput.md",
+    "Components Scripts/Main Camera/CameraFollow.md",
     "Static Scripts/LeggiesLibrary.md",
+    "Template.md",
+    "Components Scripts/Players/Attack/Attack.md",
+    "Index.md",
+    "Components Scripts/Misc/SpeedLimiter.md",
+    "Components Scripts/Players/PlayerInput.md",
     "Components Scripts/Misc/Die/Accessorries/PlaySoundDieAccessory.md",
     "Components Scripts/Misc/Die/Accessorries/DieAccessory.md",
-    "Template.md",
     "Components Scripts/Misc/Die/Die.md",
     "Components Scripts/Misc/Die/Methods/ImmediateDieMethod.md",
     "Components Scripts/Misc/Die/Methods/FlyDieMethod.md",
     "Components Scripts/Misc/Die/Methods/DieMethod.md",
     "Components Scripts/Misc/Die/Causes/DieCause.md",
     "Components Scripts/Misc/Die/Causes/TimeoutDieCause.md",
-    "Components Scripts/Main Camera/CameraFollow.md",
     "Components Scripts/Players/Move.md",
     "Components Scripts/Players/Retreat.md",
     "Components Scripts/Players/Attack/Feint.md",
     "Components Scripts/Misc/Die/Causes/ThrowDieCause.md",
     "Components Scripts/Misc/Die/Causes/AttackDieCause.md",
-    "Components Scripts/Players/Attack/Attack.md",
     "Components Scripts/Players/Throw/Throw.md",
     "Components Scripts/Players/Throw/Throwable.md",
     "Components Scripts/Players/DetectAttackables.md",
@@ -210,7 +219,6 @@
     "Components Scripts/Misc/Die/Methods",
     "Components Scripts/Misc/Die/Causes",
     "Components Scripts/Misc/Die/Accessorries",
-    "Components Scripts/Maps/PlayerPositioner.md",
     "Components Scripts",
     "Components Scripts/Misc/Die",
     "Untitled.canvas",

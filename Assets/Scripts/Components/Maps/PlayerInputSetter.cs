@@ -9,9 +9,9 @@ public class PlayerInputSetter : MonoBehaviour
         PlayerBuilder.OnInstantiatePlayer += SetPlayerInput;
     }
 
-    private void SetPlayerInput(GameObject newPlayer, int playerNumber)
+    private void SetPlayerInput(GameObject newPlayer, int playerIndex)
     {
-        Dictionary<InputName, KeyCode> newPlayerKeys = DefaultInputDictionaries.defaultKeysOfPlayer[playerNumber];
+        Dictionary<InputName, KeyCode> newPlayerKeys = DefaultInputDictionaries.defaultKeysOfPlayer[playerIndex];
         newPlayer.GetComponent<PlayerInput>().setKeys(newPlayerKeys);
     }
 }

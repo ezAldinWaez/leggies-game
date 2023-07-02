@@ -12,18 +12,18 @@ public class PlayerPositioner : MonoBehaviour
         PlayerBuilder.OnInstantiatePlayer += SetPlayerPosition;
     }
 
-    private void SetPlayerPosition(GameObject newPlayer, int playerNumber)
+    private void SetPlayerPosition(GameObject newPlayer, int playerIndex)
     {
         try
         {
-            newPlayer.transform.position = playersInitialPositions[playerNumber];
+            newPlayer.transform.position = playersInitialPositions[playerIndex];
         }
         catch (System.Exception e)
         {
             Debug.Log("Duude, you didn't set the initial position of some players.");
             Debug.Log(e.Message);
             playersInitialPositions.Add(new Vector3(0,0,0));
-            newPlayer.transform.position = playersInitialPositions[playerNumber];
+            newPlayer.transform.position = playersInitialPositions[playerIndex];
         }
     }
 }

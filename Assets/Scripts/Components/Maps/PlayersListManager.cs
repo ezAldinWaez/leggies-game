@@ -14,12 +14,12 @@ public class PlayersListManager : MonoBehaviour
         PlayerBuilder.OnInstantiatePlayer += RegisterPlayerRemovalWhenDead;
     }
 
-    private void InsertPlayerToPlayersList(GameObject newPlayer, int playerNumber)
+    private void InsertPlayerToPlayersList(GameObject newPlayer, int playerIndex)
     {
-        playersList.Insert(playerNumber, newPlayer.transform);
+        playersList.Add(newPlayer.transform);
     }
     
-    private void RegisterPlayerRemovalWhenDead(GameObject newPlayer, int playerNumber)
+    private void RegisterPlayerRemovalWhenDead(GameObject newPlayer, int playerIndex)
     {
         Die newPlayersDie = newPlayer.GetComponent<Die>();
         if (newPlayersDie != null)

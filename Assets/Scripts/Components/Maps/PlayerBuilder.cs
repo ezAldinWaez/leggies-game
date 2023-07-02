@@ -1,23 +1,27 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+
 public class PlayerBuilder : MonoBehaviour
 {
     [SerializeField] public GameObject[] playerPrefabs;
-    public int playersCount { get; private set; }
-    public delegate void InstantiatePlayerAction(GameObject newPlayer, int playerNumber);
+    public delegate void InstantiatePlayerAction(GameObject newPlayer, int playerIndex);
     public static event InstantiatePlayerAction OnInstantiatePlayer;
 
     private void Start()
     {
-        playersCount = playerPrefabs.Length;
-        for (int playerNumber = 0; playerNumber < playersCount; playerNumber++)
-        {
-            GameObject newPlayer = BuildPlayer(playerNumber);
-            OnInstantiatePlayer?.Invoke(newPlayer, playerNumber);
-        }
+        List<int> selectedPlayers = GetSelectedPlayers();
+        foreach (int playerIndex in selectedPlayers)
+            OnInstantiatePlayer?.Invoke(Instantiate(playerPrefabs[playerIndex]), playerIndex);
     }
-    private GameObject BuildPlayer(int playerNumber)
+
+    private List<int> GetSelectedPlayers()
     {
-        GameObject newPlayer = Instantiate(playerPrefabs[playerNumber]);
-        return newPlayer;
+        List<int> selectedPlayers = new();
+        for (int i = 0; i < playerPrefabs.Length; i++)
+            if (PlayerPrefs.GetInt("Player" + i.ToString()) == 1)
+                selectedPlayers.Add(i);
+        return selectedPlayers;
     }
+
 }

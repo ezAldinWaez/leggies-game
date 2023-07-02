@@ -9,9 +9,8 @@ using LeggiesLibrary;
 [RequireComponent(typeof(TimeoutDieCause))]
 public class Throwable : MonoBehaviour
 {
-    // TODO: Make docs about this.
-    // TODO: Make its playing a sound use LeggiesLibrary in an Accessory.
     private bool willSoundOnThrow;
+    private AudioClip throwClip;
     private bool willShake;
     private float minShake, maxShake;
     private Vector2 flyForce;
@@ -22,9 +21,10 @@ public class Throwable : MonoBehaviour
         originalScale = this.transform.localScale;
     }
 
-    public void Boom(bool willSoundOnThrow, bool willShake, float minShake, float maxShake, Vector2 flyForce)
+    public void Boom(bool willSoundOnThrow, AudioClip throwClip, bool willShake, float minShake, float maxShake, Vector2 flyForce)
     {
         this.willSoundOnThrow = willSoundOnThrow;
+        this.throwClip = throwClip;
         this.willShake = willShake;
         this.minShake = minShake;
         this.maxShake = maxShake;
@@ -36,15 +36,7 @@ public class Throwable : MonoBehaviour
     {
         this.GetComponent<Rigidbody2D>().AddForce(flyForce);
         if (willSoundOnThrow)
-        {
-            AudioSource source = this.GetComponent<AudioSource>();
-            if (source == null || source.clip == null)
-            {
-                Debug.Log("The throwable's AudioSource or clip is null, thus, it is but incomprehensible for an unsentient throwable to make sound that satisfies thy mighty gourmet tastes. I thus thereby beseech thee for my audio clip's restoration. Sincerely, " + this.name + ".");
-                return;
-            }
-            source.Play(0);
-        }
+            LeggiesSounds.PlaySoundFrom(throwClip);
     }
 
     void Update()

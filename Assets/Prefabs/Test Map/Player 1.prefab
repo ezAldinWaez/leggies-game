@@ -407,6 +407,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cooldownDuration: 0.25
   willSoundOnThrow: 1
+  throwClip: {fileID: 8300000, guid: d542a3d9437db3840bd002af6335cdda, type: 3}
   willShake: 1
   minShake: -1
   maxShake: 2

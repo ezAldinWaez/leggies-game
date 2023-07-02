@@ -405,9 +405,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2e2326254e15214a898a55a228a0609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  throwDuration: 5
   cooldownDuration: 0.25
   willSoundOnThrow: 1
+  throwClip: {fileID: 8300000, guid: d542a3d9437db3840bd002af6335cdda, type: 3}
   willShake: 1
   minShake: -1
   maxShake: 2

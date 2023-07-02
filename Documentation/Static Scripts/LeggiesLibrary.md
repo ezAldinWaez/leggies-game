@@ -19,6 +19,6 @@ ___
 See what you like from what it offers and use the namespace.
 ___
 
-***27 Sept, 2022 - initialize***
+***27 Sep, 2022 - initialize***
 ***9 Feb, 2023 - add LeggiesSounds and LeggiesMath's RandomDirectionUnitVector2***
 ***4 Jun, 2023 - remove CameraOffset from the library***

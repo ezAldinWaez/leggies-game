@@ -8,7 +8,6 @@ using LeggiesLibrary;
 [RequireComponent(typeof(PlayerInput))]
 public class Feint : MonoBehaviour
 {
-    // TODO: Make an OnFeint event and FeintAccessories folder for sound--just like Attack.
     [SerializeField] private float feintDuration = 0.25f;
     [SerializeField] private float scareProbability = 0.1f;
     [SerializeField] private bool willShake = true;

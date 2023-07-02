@@ -15,4 +15,4 @@ ___
 Attach to what you want to fly away on death, link with a [[DieCause]].
 ___
 
-***25 March, 2023 - initialize***
+***25 Mar, 2023 - initialize***

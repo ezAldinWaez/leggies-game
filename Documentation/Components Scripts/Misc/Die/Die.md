@@ -16,6 +16,6 @@ Simply attach to what would die. Just that.
 ___
 
 ***May, 2022 - initialize***
-***21 Sept, 2022 - audio support***
-***22 Sept, 2022 - make delegating death***
+***21 Sep, 2022 - audio support***
+***22 Sep, 2022 - make delegating death***
 ***25 Mar, 2023 - split into cause, method, and accessories*** 

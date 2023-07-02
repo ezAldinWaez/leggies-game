@@ -20,4 +20,4 @@ The script itself does not move the object, so you need a [[PlayerInput]] script
 ___
 
 ***May, 2022 - initialize***
-***21 Sept, 2022 - audio support***
+***21 Sep, 2022 - audio support***

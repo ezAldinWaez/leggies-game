@@ -15,4 +15,4 @@ ___
 Attach to what would die by timeout, assign a value to timeoutTime. Also attach a [[DieMethod]] and link with this. 
 ___
 
-***25 March, 2023 - initialize***
+***25 Mar, 2023 - initialize***

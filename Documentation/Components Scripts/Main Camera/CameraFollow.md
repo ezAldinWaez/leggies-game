@@ -17,6 +17,6 @@ ___
 Attach it to the main camera and set the properties: distance from big offset x is how much away from center before needing to snap, the small one is how much before needing to gradually follow, speed is the speed (wow), and center is where to center things, a bit to the down is good, like (0, -0.55).
 ___
 
-***18 Sept, 2022 - initialize***
-***27 Sept, 2022 - use LeggiesCameraOffset***
+***18 Sep, 2022 - initialize***
+***27 Sep, 2022 - use LeggiesCameraOffset***
 ***4 Jun, 2023 - move CameraOffset from library to here***

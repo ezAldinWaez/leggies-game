@@ -24,5 +24,5 @@ Also set the scareProbability, between 0.0 (0%) and 1.0 (100%). If you don’t w
 ___
 
 ***May, 2022 - initialize***
-***22 Sept, 2022 - random audio support***
-***27 Sept, 2022 - scare and shake support***
+***22 Sep, 2022 - random audio support***
+***27 Sep, 2022 - scare and shake support***

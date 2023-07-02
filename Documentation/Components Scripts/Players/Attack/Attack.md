@@ -27,5 +27,5 @@ As for shaking, set willShake true if you want shaking effects, and give the ran
 ___
 
 ***May, 2022 - initialize***
-***21 Sept, 2022 - audio support***
-***27 Sept, 2022 - shake support***
+***21 Sep, 2022 - audio support***
+***27 Sep, 2022 - shake support***

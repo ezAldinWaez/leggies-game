@@ -7,10 +7,9 @@ using LeggiesLibrary;
 [RequireComponent(typeof(PlayerInput))]
 public class Throw : MonoBehaviour
 {
-    // TODO: Make docs about this.
-    // TODO: Make ThrowAccessories and use it to play the sound instead of in Throwable.
     [SerializeField] private float cooldownDuration = 1;
-    [SerializeField] private bool willSoundOnThrow = true;
+    [SerializeField] private bool willSoundOnThrow = false;
+    [SerializeField] private AudioClip throwClip = null;
     [SerializeField] private bool willShake = true;
     [SerializeField] private float minShake = -0.5f, maxShake = 0.3f;
     [SerializeField] private GameObject throwableAttack;
@@ -50,7 +49,7 @@ public class Throw : MonoBehaviour
             Vector3 spawnPos = this.transform.position + 2 * forceUnitVector;
             GameObject thrownAttack = Instantiate<GameObject>(throwableAttack, spawnPos, Quaternion.identity);
             Vector2 flyForce = forceUnitVector * flyPower;
-            thrownAttack.GetComponent<Throwable>().Boom(willSoundOnThrow, willShake, minShake, maxShake, flyForce);
+            thrownAttack.GetComponent<Throwable>().Boom(willSoundOnThrow, throwClip, willShake, minShake, maxShake, flyForce);
             timeSinceLastThrow = 0;
         }
     }

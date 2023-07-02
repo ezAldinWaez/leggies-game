@@ -29,5 +29,5 @@ ___
 Attach it to what’s speed needs be limited and specify the max speed.
 ___
 
-***25 June, 2022 - initialize***
-***21 Sept, 2022 - change to air resistance style***
+***25 Jun, 2022 - initialize***
+***21 Sep, 2022 - change to air resistance style***

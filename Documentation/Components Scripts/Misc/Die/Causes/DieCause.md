@@ -15,4 +15,4 @@ ___
 Just write classes that inherit from it. No other use.
 ___
 
-***25 March, 2023 - initialize***
+***25 Mar, 2023 - initialize***
